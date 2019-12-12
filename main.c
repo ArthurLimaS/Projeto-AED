@@ -310,6 +310,8 @@ int main()
     int confirmar = 0 , voltar =0, desligar = 0;
     int but_1 = 0,but_2 = 0,but_3 = 0,but_4 = 0,but_5 = 0,but_6 = 0,but_7 = 0,but_8 = 0,but_9 = 0,but_10 = 0;
     int but_11 = 0,but_12 = 0,but_13 = 0,but_14 = 0,but_15 = 0,but_16 = 0,but_17 = 0,but_18 = 0,but_19 = 0,but_20 = 0;
+    int selecionadoEsq = 0 , selecionadoDir = 0;
+    int conec_1_1 = 0;
     event_queue = al_create_event_queue();
     al_register_event_source(event_queue, al_get_display_event_source(display));
     al_register_event_source(event_queue,al_get_mouse_event_source());
@@ -500,6 +502,9 @@ int main()
                             fechar = 0;
                             but_1 = 0,but_2 = 0,but_3 = 0,but_4 = 0,but_5 = 0,but_6 = 0,but_7 = 0,but_8 = 0,but_9 = 0,but_10 = 0;
                             but_11 = 0,but_12 = 0,but_13 = 0,but_14 = 0,but_15 = 0,but_16 = 0,but_17 = 0,but_18 = 0,but_19 = 0,but_20 = 0;
+                            selecionadoDir = 0;
+                            selecionadoEsq = 0;
+                            conec_1_1 = 0;
                             al_stop_sample_instance(inst_button);
                             al_play_sample_instance(inst_button);
                             break;
@@ -515,46 +520,66 @@ int main()
                     confirmar = 0;
                     voltar = 0;
                     if(but_1 == 2){
+                        selecionadoEsq = 0;
                         but_1 = 1;
                     }else if(but_2 == 2){
+                        selecionadoEsq = 0;
                         but_2 = 1;
                     }else if(but_3 == 2){
+                        selecionadoEsq = 0;
                         but_3 = 1;
                     }else if(but_4 == 2){
+                        selecionadoEsq = 0;
                         but_4 = 1;
                     }else if(but_5 == 2){
+                        selecionadoEsq = 0;
                         but_5 = 1;
                     }else if(but_6 == 2){
+                        selecionadoEsq = 0;
                         but_6 = 1;
                     }else if(but_7 == 2){
+                        selecionadoEsq = 0;
                         but_7 = 1;
                     }else if(but_8 == 2){
+                        selecionadoEsq = 0;
                         but_8 = 1;
                     }else if(but_9 == 2){
+                        selecionadoEsq = 0;
                         but_9 = 1;
                     }else if(but_10 == 2){
+                        selecionadoEsq = 0;
                         but_10 = 1;
                     }
 
                     if(but_11 == 2){
+                        selecionadoDir = 0;
                         but_11 = 1;
                     }else if(but_12 == 2){
+                        selecionadoDir = 0;
                         but_12 = 1;
                     }else if(but_13 == 2){
+                        selecionadoDir = 0;
                         but_13 = 1;
                     }else if(but_14 == 2){
+                        selecionadoDir = 0;
                         but_14 = 1;
                     }else if(but_15 == 2){
+                        selecionadoDir = 0;
                         but_15 = 1;
                     }else if(but_16 == 2){
+                        selecionadoDir = 0;
                         but_16 = 1;
                     }else if(but_17 == 2){
+                        selecionadoDir = 0;
                         but_17 = 1;
                     }else if(but_18 == 2){
+                        selecionadoDir = 0;
                         but_18 = 1;
                     }else if(but_19 == 2){
+                        selecionadoDir = 0;
                         but_19 = 1;
                     }else if(but_20 == 2){
+                        selecionadoDir = 0;
                         but_20 = 1;
                     }
                     al_stop_sample_instance(inst_button);
@@ -569,11 +594,13 @@ int main()
                             al_stop_sample_instance(inst_button);
                             al_play_sample_instance(inst_button);
                             but_1 = 2;
+                            selecionadoEsq = 1;
                             }
                         }else if(but_1 == 2){
                             al_stop_sample_instance(inst_button);
                             al_play_sample_instance(inst_button);
                             but_1 = 1;
+                            selecionadoEsq == 0;
                         }
                 }else if(pos_x >= 230 && pos_x <270 && pos_y > 230 && pos_y < 260){
                         if(but_2 == 1){
@@ -689,11 +716,13 @@ int main()
                                 al_stop_sample_instance(inst_button);
                                 al_play_sample_instance(inst_button);
                                 but_11 = 2;
+                                selecionadoDir = 1;
                             }
                         }else if(but_11 == 2){
                             al_stop_sample_instance(inst_button);
                             al_play_sample_instance(inst_button);
                             but_11 = 1;
+                            selecionadoDir == 0;
                         }
                 }else if(pos_x >= 980 && pos_x <1020 && pos_y > 230 && pos_y < 260){
                         if(but_12 == 1){
@@ -809,7 +838,27 @@ int main()
 
             if(al_is_event_queue_empty(event_queue)){
                 al_draw_scaled_bitmap(fundo_matching,0,0,al_get_bitmap_width(fundo_matching),al_get_bitmap_height(fundo_matching),0,0,SCREEN_W,SCREEN_H,0);
-                al_draw_scaled_bitmap(linha_1,0,0,al_get_bitmap_width(linha_1),al_get_bitmap_height(linha_1),265,200,al_get_bitmap_width(linha_1), al_get_bitmap_height(linha_1),0);
+                if(selecionadoDir == 1 && selecionadoEsq == 1){
+                    if(conec_1_1 == 0){
+                        conec_1_1 = 1;
+                        selecionadoDir = 0;
+                        selecionadoEsq = 0;
+                        but_1 = 1;
+                        but_11 = 1;
+                    }else{
+                        conec_1_1 = 0;
+                        selecionadoDir = 0;
+                        selecionadoEsq = 0;
+                        but_1 = 1;
+                        but_11 = 1;
+                    }
+                }
+
+                if(conec_1_1 == 1){
+                    al_draw_scaled_bitmap(linha_1,0,0,al_get_bitmap_width(linha_1),al_get_bitmap_height(linha_1),265,200,al_get_bitmap_width(linha_1), al_get_bitmap_height(linha_1),0);
+                }
+
+                //al_draw_scaled_bitmap(linha_1,0,0,al_get_bitmap_width(linha_1),al_get_bitmap_height(linha_1),265,200,al_get_bitmap_width(linha_1), al_get_bitmap_height(linha_1),0);
                 al_draw_rotated_bitmap(linha_1,0,0,265,200,0.07,0);
                 //LINHA 1 DE 19 A 16
                 al_draw_rotated_bitmap(linha_1_2,0,310,265,200,0.49,0);
