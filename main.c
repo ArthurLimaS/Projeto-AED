@@ -322,6 +322,10 @@ int main()
     ALLEGRO_BITMAP *fundo_matching = al_load_bitmap("images/matchingPage/fundo.jpg");
     ALLEGRO_BITMAP *butimage_vermelho= al_load_bitmap("images/matchingPage/butVermelho.png");
     ALLEGRO_BITMAP *butimage_azul= al_load_bitmap("images/matchingPage/but_azul.png");
+    ALLEGRO_BITMAP *linha_1= al_load_bitmap("images/matchingPage/linha_1.png");
+    ALLEGRO_BITMAP *linha_1_2= al_load_bitmap("images/matchingPage/linha_1.2.png");
+    ALLEGRO_BITMAP *linha_1_3= al_load_bitmap("images/matchingPage/linha1.3.png");
+    ALLEGRO_BITMAP *linha_1_4= al_load_bitmap("images/matchingPage/linha_1.4.png");
     ALLEGRO_BITMAP *butimage_verde = al_load_bitmap("images/matchingPage/butVerde.png");
     ALLEGRO_BITMAP *butimage_confirmar= al_load_bitmap("images/matchingPage/but_confirmar.png");
     ALLEGRO_BITMAP *butimage_voltar = al_load_bitmap("images/matchingPage/but_voltar.png");
@@ -805,6 +809,19 @@ int main()
 
             if(al_is_event_queue_empty(event_queue)){
                 al_draw_scaled_bitmap(fundo_matching,0,0,al_get_bitmap_width(fundo_matching),al_get_bitmap_height(fundo_matching),0,0,SCREEN_W,SCREEN_H,0);
+                al_draw_scaled_bitmap(linha_1,0,0,al_get_bitmap_width(linha_1),al_get_bitmap_height(linha_1),265,200,al_get_bitmap_width(linha_1), al_get_bitmap_height(linha_1),0);
+                al_draw_rotated_bitmap(linha_1,0,0,265,200,0.07,0);
+                //LINHA 1 DE 19 A 16
+                al_draw_rotated_bitmap(linha_1_2,0,310,265,200,0.49,0);
+                al_draw_rotated_bitmap(linha_1_2,0,310,265,200,0.43,0);
+                al_draw_rotated_bitmap(linha_1_2,20,310,265,200,0.38,0);
+                al_draw_rotated_bitmap(linha_1_2,30,310,265,200,0.32,0);
+                //LINHA 1 DE 15 A 13
+                al_draw_rotated_bitmap(linha_1_3,-2,660,265,200,0.26,0);
+                al_draw_rotated_bitmap(linha_1_3,2,660,265,200,0.19,0);
+                al_draw_rotated_bitmap(linha_1_3,8,660,265,200,0.13,0);
+                //LINHA 1 A 20
+                al_draw_rotated_bitmap(linha_1_4,0,590,265,200,0.54,0);
                 if(but_1 == 0){
                     al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,180,40,40,0);
                 }else if(but_1 == 1){
@@ -949,6 +966,7 @@ int main()
                 al_draw_scaled_bitmap(butimage_voltar,0,0,al_get_bitmap_width(butimage_voltar),al_get_bitmap_height(butimage_voltar),0,0,40,40,0);
 
 
+
                 //desenha com as cordenada
                 if(pos_x >= 1180 && pos_x <1260 && pos_y > 630 && pos_y < 665){
                     al_draw_scaled_bitmap(butimage_confirmar,0,0,al_get_bitmap_width(butimage_confirmar),al_get_bitmap_height(butimage_confirmar),1160,620,60,60,0);
@@ -957,7 +975,6 @@ int main()
                      al_draw_scaled_bitmap(butimage_voltar,0,0,al_get_bitmap_width(butimage_voltar),al_get_bitmap_height(butimage_voltar),-4,-4,60,60,0);
                 }
             }
-
             al_flip_display();
         }
 
