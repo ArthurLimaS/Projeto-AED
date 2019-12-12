@@ -510,6 +510,49 @@ int main()
                 if(pos_x >=0 && pos_x <=40 && pos_y >= 0 && pos_y <= 40){
                     confirmar = 0;
                     voltar = 0;
+                    if(but_1 == 2){
+                        but_1 = 1;
+                    }else if(but_2 == 2){
+                        but_2 = 1;
+                    }else if(but_3 == 2){
+                        but_3 = 1;
+                    }else if(but_4 == 2){
+                        but_4 = 1;
+                    }else if(but_5 == 2){
+                        but_5 = 1;
+                    }else if(but_6 == 2){
+                        but_6 = 1;
+                    }else if(but_7 == 2){
+                        but_7 = 1;
+                    }else if(but_8 == 2){
+                        but_8 = 1;
+                    }else if(but_9 == 2){
+                        but_9 = 1;
+                    }else if(but_10 == 2){
+                        but_10 = 1;
+                    }
+
+                    if(but_11 == 2){
+                        but_11 = 1;
+                    }else if(but_12 == 2){
+                        but_12 = 1;
+                    }else if(but_13 == 2){
+                        but_13 = 1;
+                    }else if(but_14 == 2){
+                        but_14 = 1;
+                    }else if(but_15 == 2){
+                        but_15 = 1;
+                    }else if(but_16 == 2){
+                        but_16 = 1;
+                    }else if(but_17 == 2){
+                        but_17 = 1;
+                    }else if(but_18 == 2){
+                        but_18 = 1;
+                    }else if(but_19 == 2){
+                        but_19 = 1;
+                    }else if(but_20 == 2){
+                        but_20 = 1;
+                    }
                     al_stop_sample_instance(inst_button);
                     al_play_sample_instance(inst_button);
                 }else if(pos_x >=1180 && pos_x <=1260 && pos_y >= 630 && pos_y <= 665){
