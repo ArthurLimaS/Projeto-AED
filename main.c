@@ -348,6 +348,7 @@ int main()
                     al_play_sample_instance(inst_button);
                     fechar = 1;
                     desligar = 1;
+                    al_rest(2);
                     break;
                 }else if(pos_x >= 610 && pos_x <740 && pos_y > 420 && pos_y < 540){
                     fechar = 1;
@@ -517,9 +518,11 @@ int main()
                         al_play_sample_instance(inst_button);
                 }else if(pos_x >= 230 && pos_x <270 && pos_y > 180 && pos_y < 210){
                         if(but_1 == 1){
+                            if(but_1 != 2 && but_2 != 2 && but_3 != 2 && but_4 != 2 && but_5 != 2 && but_6 != 2 && but_7 != 2 && but_8 != 2 && but_9 != 2 && but_10 != 2){
                             al_stop_sample_instance(inst_button);
                             al_play_sample_instance(inst_button);
                             but_1 = 2;
+                            }
                         }else if(but_1 == 2){
                             al_stop_sample_instance(inst_button);
                             al_play_sample_instance(inst_button);
@@ -527,19 +530,119 @@ int main()
                         }
                 }else if(pos_x >= 230 && pos_x <270 && pos_y > 230 && pos_y < 260){
                         if(but_2 == 1){
+                            if(but_1 != 2 && but_2 != 2 && but_3 != 2 && but_4 != 2 && but_5 != 2 && but_6 != 2 && but_7 != 2 && but_8 != 2 && but_9 != 2 && but_10 != 2){
                             al_stop_sample_instance(inst_button);
                             al_play_sample_instance(inst_button);
                             but_2 = 2;
+                            }
                         }else if(but_2 == 2){
                             al_stop_sample_instance(inst_button);
                             al_play_sample_instance(inst_button);
                             but_2 = 1;
                         }
-                }else if(pos_x >= 980 && pos_x <1020 && pos_y > 180 && pos_y < 210){
-                        if(but_11 == 1){
+                }else if(pos_x >= 230 && pos_x <270 && pos_y > 280 && pos_y < 310){
+                        if(but_3 == 1){
+                            if(but_1 != 2 && but_2 != 2 && but_3 != 2 && but_4 != 2 && but_5 != 2 && but_6 != 2 && but_7 != 2 && but_8 != 2 && but_9 != 2 && but_10 != 2){
                             al_stop_sample_instance(inst_button);
                             al_play_sample_instance(inst_button);
-                            but_11 = 2;
+                            but_3 = 2;
+                            }
+                        }else if(but_3 == 2){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_3 = 1;
+                        }
+                }else if(pos_x >= 230 && pos_x <270 && pos_y > 330 && pos_y < 360){
+                        if(but_4 == 1){
+                            if(but_1 != 2 && but_2 != 2 && but_3 != 2 && but_4 != 2 && but_5 != 2 && but_6 != 2 && but_7 != 2 && but_8 != 2 && but_9 != 2 && but_10 != 2){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_4 = 2;
+                            }
+                        }else if(but_4 == 2){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_4 = 1;
+                        }
+                }else if(pos_x >= 230 && pos_x <270 && pos_y > 380 && pos_y < 410){
+                        if(but_5 == 1){
+                            if(but_1 != 2 && but_2 != 2 && but_3 != 2 && but_4 != 2 && but_5 != 2 && but_6 != 2 && but_7 != 2 && but_8 != 2 && but_9 != 2 && but_10 != 2){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_5 = 2;
+                            }
+                        }else if(but_5 == 2){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_5 = 1;
+                        }
+                }else if(pos_x >= 230 && pos_x <270 && pos_y > 430 && pos_y < 460){
+                        if(but_6 == 1){
+                           if(but_1 != 2 && but_2 != 2 && but_3 != 2 && but_4 != 2 && but_5 != 2 && but_6 != 2 && but_7 != 2 && but_8 != 2 && but_9 != 2 && but_10 != 2){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_6 = 2;
+                            }
+                        }else if(but_6 == 2){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_6 = 1;
+                        }
+                }else if(pos_x >= 230 && pos_x <270 && pos_y > 480 && pos_y < 510){
+                        if(but_7 == 1){
+                            if(but_1 != 2 && but_2 != 2 && but_3 != 2 && but_4 != 2 && but_5 != 2 && but_6 != 2 && but_7 != 2 && but_8 != 2 && but_9 != 2 && but_10 != 2){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_7 = 2;
+                            }
+                        }else if(but_7 == 2){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_7 = 1;
+                        }
+                }else if(pos_x >= 230 && pos_x <270 && pos_y > 530 && pos_y < 560){
+                        if(but_8 == 1){
+                            if(but_1 != 2 && but_2 != 2 && but_3 != 2 && but_4 != 2 && but_5 != 2 && but_6 != 2 && but_7 != 2 && but_8 != 2 && but_9 != 2 && but_10 != 2){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_8 = 2;
+                            }
+                        }else if(but_8 == 2){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_8 = 1;
+                        }
+                }else if(pos_x >= 230 && pos_x <270 && pos_y > 580 && pos_y < 610){
+                        if(but_9 == 1){
+                            if(but_1 != 2 && but_2 != 2 && but_3 != 2 && but_4 != 2 && but_5 != 2 && but_6 != 2 && but_7 != 2 && but_8 != 2 && but_9 != 2 && but_10 != 2){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_9 = 2;
+                            }
+                        }else if(but_9 == 2){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_9 = 1;
+                        }
+                }else if(pos_x >= 230 && pos_x <270 && pos_y > 630 && pos_y < 660){
+                        if(but_10 == 1){
+                            if(but_1 != 2 && but_2 != 2 && but_3 != 2 && but_4 != 2 && but_5 != 2 && but_6 != 2 && but_7 != 2 && but_8 != 2 && but_9 != 2 && but_10 != 2){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_10 = 2;
+                            }
+                        }else if(but_10 == 2){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_10 = 1;
+                        }
+                }else if(pos_x >= 980 && pos_x <1020 && pos_y > 180 && pos_y < 210){
+                        if(but_11 == 1){
+                            if(but_11 != 2 && but_12 != 2 && but_13 != 2 && but_14 != 2 && but_15 != 2 && but_16 != 2 && but_17 != 2 && but_18 != 2 && but_19 != 2 && but_20 != 2){
+                                al_stop_sample_instance(inst_button);
+                                al_play_sample_instance(inst_button);
+                                but_11 = 2;
+                            }
                         }else if(but_11 == 2){
                             al_stop_sample_instance(inst_button);
                             al_play_sample_instance(inst_button);
@@ -547,13 +650,111 @@ int main()
                         }
                 }else if(pos_x >= 980 && pos_x <1020 && pos_y > 230 && pos_y < 260){
                         if(but_12 == 1){
-                            al_stop_sample_instance(inst_button);
-                            al_play_sample_instance(inst_button);
-                            but_12 = 2;
+                            if(but_11 != 2 && but_12 != 2 && but_13 != 2 && but_14 != 2 && but_15 != 2 && but_16 != 2 && but_17 != 2 && but_18 != 2 && but_19 != 2 && but_20 != 2){
+                                al_stop_sample_instance(inst_button);
+                                al_play_sample_instance(inst_button);
+                                but_12 = 2;
+                            }
                         }else if(but_12 == 2){
                             al_stop_sample_instance(inst_button);
                             al_play_sample_instance(inst_button);
                             but_12 = 1;
+                        }
+                }else if(pos_x >= 980 && pos_x <1020 && pos_y > 280 && pos_y < 310){
+                        if(but_13 == 1){
+                            if(but_11 != 2 && but_12 != 2 && but_13 != 2 && but_14 != 2 && but_15 != 2 && but_16 != 2 && but_17 != 2 && but_18 != 2 && but_19 != 2 && but_20 != 2){
+                                al_stop_sample_instance(inst_button);
+                                al_play_sample_instance(inst_button);
+                                but_13 = 2;
+                            }
+                        }else if(but_13 == 2){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_13 = 1;
+                        }
+                }else if(pos_x >= 980 && pos_x <1020 && pos_y > 330 && pos_y < 360){
+                        if(but_14 == 1){
+                            if(but_11 != 2 && but_12 != 2 && but_13 != 2 && but_14 != 2 && but_15 != 2 && but_16 != 2 && but_17 != 2 && but_18 != 2 && but_19 != 2 && but_20 != 2){
+                                al_stop_sample_instance(inst_button);
+                                al_play_sample_instance(inst_button);
+                                but_14 = 2;
+                            }
+                        }else if(but_14 == 2){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_14 = 1;
+                        }
+                }else if(pos_x >= 980 && pos_x <1020 && pos_y > 380 && pos_y < 410){
+                        if(but_15 == 1){
+                            if(but_11 != 2 && but_12 != 2 && but_13 != 2 && but_14 != 2 && but_15 != 2 && but_16 != 2 && but_17 != 2 && but_18 != 2 && but_19 != 2 && but_20 != 2){
+                                al_stop_sample_instance(inst_button);
+                                al_play_sample_instance(inst_button);
+                                but_15 = 2;
+                            }
+                        }else if(but_15 == 2){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_15 = 1;
+                        }
+                }else if(pos_x >= 980 && pos_x <1020 && pos_y > 430 && pos_y < 460){
+                        if(but_16== 1){
+                            if(but_11 != 2 && but_12 != 2 && but_13 != 2 && but_14 != 2 && but_15 != 2 && but_16 != 2 && but_17 != 2 && but_18 != 2 && but_19 != 2 && but_20 != 2){
+                                al_stop_sample_instance(inst_button);
+                                al_play_sample_instance(inst_button);
+                                but_16 = 2;
+                            }
+                        }else if(but_16 == 2){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_16 = 1;
+                        }
+                }else if(pos_x >= 980 && pos_x <1020 && pos_y > 480 && pos_y < 510){
+                        if(but_17 == 1){
+                            if(but_11 != 2 && but_12 != 2 && but_13 != 2 && but_14 != 2 && but_15 != 2 && but_16 != 2 && but_17 != 2 && but_18 != 2 && but_19 != 2 && but_20 != 2){
+                                al_stop_sample_instance(inst_button);
+                                al_play_sample_instance(inst_button);
+                                but_17 = 2;
+                            }
+                        }else if(but_17 == 2){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_17 = 1;
+                        }
+                }else if(pos_x >= 980 && pos_x <1020 && pos_y > 530 && pos_y < 560){
+                        if(but_18 == 1){
+                            if(but_11 != 2 && but_12 != 2 && but_13 != 2 && but_14 != 2 && but_15 != 2 && but_16 != 2 && but_17 != 2 && but_18 != 2 && but_19 != 2 && but_20 != 2){
+                                al_stop_sample_instance(inst_button);
+                                al_play_sample_instance(inst_button);
+                                but_18 = 2;
+                            }
+                        }else if(but_18 == 2){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_18 = 1;
+                        }
+                }else if(pos_x >= 980 && pos_x <1020 && pos_y > 580 && pos_y < 610){
+                        if(but_19 == 1){
+                            if(but_11 != 2 && but_12 != 2 && but_13 != 2 && but_14 != 2 && but_15 != 2 && but_16 != 2 && but_17 != 2 && but_18 != 2 && but_19 != 2 && but_20 != 2){
+                                al_stop_sample_instance(inst_button);
+                                al_play_sample_instance(inst_button);
+                                but_19 = 2;
+                            }
+                        }else if(but_19 == 2){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_19 = 1;
+                        }
+                }else if(pos_x >= 980 && pos_x <1020 && pos_y > 630 && pos_y < 680){
+                        if(but_20 == 1){
+                            if(but_11 != 2 && but_12 != 2 && but_13 != 2 && but_14 != 2 && but_15 != 2 && but_16 != 2 && but_17 != 2 && but_18 != 2 && but_19 != 2 && but_20 != 2){
+                                al_stop_sample_instance(inst_button);
+                                al_play_sample_instance(inst_button);
+                                but_20 = 2;
+                            }
+                        }else if(but_20== 2){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_20 = 1;
                         }
                 }
             }
@@ -577,59 +778,59 @@ int main()
                 }
                 if(but_3 == 0){
                     al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,280,40,40,0);
-                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,280,40,40,0);
-                }else{
+                }else if(but_3 == 1){
                     al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),230,280,40,40,0);
-                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,280,40,40,0);
+                }else if(but_3 == 2){
+                    al_draw_scaled_bitmap(butimage_azul,0,0,al_get_bitmap_width(butimage_azul),al_get_bitmap_height(butimage_azul),230,280,40,40,0);
                 }
                 if(but_4 == 0){
                     al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,330,40,40,0);
-                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,330,40,40,0);
-                }else{
+                }else if(but_4 == 1){
                     al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),230,330,40,40,0);
-                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,330,40,40,0);
+                }else if(but_4 == 2){
+                    al_draw_scaled_bitmap(butimage_azul,0,0,al_get_bitmap_width(butimage_azul),al_get_bitmap_height(butimage_azul),230,330,40,40,0);
                 }
                 if(but_5 == 0){
                     al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,380,40,40,0);
-                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,380,40,40,0);
-                }else{
+                }else if(but_5 == 1){
                     al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),230,380,40,40,0);
-                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,380,40,40,0);
+                }else if(but_5 == 2){
+                    al_draw_scaled_bitmap(butimage_azul,0,0,al_get_bitmap_width(butimage_azul),al_get_bitmap_height(butimage_azul),230,380,40,40,0);
                 }
                 if(but_6 == 0){
                     al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,430,40,40,0);
-                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,430,40,40,0);
-                }else{
+                }else if(but_6 == 1){
                     al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),230,430,40,40,0);
-                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,430,40,40,0);
+                }else if(but_6 == 2){
+                    al_draw_scaled_bitmap(butimage_azul,0,0,al_get_bitmap_width(butimage_azul),al_get_bitmap_height(butimage_azul),230,430,40,40,0);
                 }
                 if(but_7 == 0){
                     al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,480,40,40,0);
-                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,480,40,40,0);
-                }else{
+                }else if(but_7 == 1){
                     al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),230,480,40,40,0);
-                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,480,40,40,0);
+                }else if(but_7 == 2){
+                    al_draw_scaled_bitmap(butimage_azul,0,0,al_get_bitmap_width(butimage_azul),al_get_bitmap_height(butimage_azul),230,480,40,40,0);
                 }
                 if(but_8 == 0){
                     al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,530,40,40,0);
-                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,530,40,40,0);
-                }else{
+                }else if(but_8 == 1){
                     al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),230,530,40,40,0);
-                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,530,40,40,0);
+                }else if(but_8 == 2){
+                    al_draw_scaled_bitmap(butimage_azul,0,0,al_get_bitmap_width(butimage_azul),al_get_bitmap_height(butimage_azul),230,530,40,40,0);
                 }
                 if(but_9 == 0){
                     al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,580,40,40,0);
-                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,580,40,40,0);
-                }else{
+                }else if(but_9 == 1){
                     al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),230,580,40,40,0);
-                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,580,40,40,0);
+                }else if(but_9 == 2){
+                    al_draw_scaled_bitmap(butimage_azul,0,0,al_get_bitmap_width(butimage_azul),al_get_bitmap_height(butimage_azul),230,580,40,40,0);
                 }
                 if(but_10 == 0){
                     al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,630,40,40,0);
-                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,630,40,40,0);
-                }else{
+                }else if(but_10 == 1){
                     al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),230,630,40,40,0);
-                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,630,40,40,0);
+                }else if(but_10 == 2){
+                    al_draw_scaled_bitmap(butimage_azul,0,0,al_get_bitmap_width(butimage_azul),al_get_bitmap_height(butimage_azul),230,630,40,40,0);
                 }
                 if(but_11 == 0){
                     al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,180,40,40,0);
@@ -644,6 +845,62 @@ int main()
                     al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,230,40,40,0);
                 }else if(but_12 == 2){
                     al_draw_scaled_bitmap(butimage_azul,0,0,al_get_bitmap_width(butimage_azul),al_get_bitmap_height(butimage_azul),980,230,40,40,0);
+                }
+                if(but_13 == 0){
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,280,40,40,0);
+                }else if(but_13 == 1){
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,280,40,40,0);
+                }else if(but_13 == 2){
+                    al_draw_scaled_bitmap(butimage_azul,0,0,al_get_bitmap_width(butimage_azul),al_get_bitmap_height(butimage_azul),980,280,40,40,0);
+                }
+                if(but_14 == 0){
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,330,40,40,0);
+                }else if(but_14 == 1){
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,330,40,40,0);
+                }else if(but_14 == 2){
+                    al_draw_scaled_bitmap(butimage_azul,0,0,al_get_bitmap_width(butimage_azul),al_get_bitmap_height(butimage_azul),980,330,40,40,0);
+                }
+                if(but_15 == 0){
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,380,40,40,0);
+                }else if(but_15 == 1){
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,380,40,40,0);
+                }else if(but_15 == 2){
+                    al_draw_scaled_bitmap(butimage_azul,0,0,al_get_bitmap_width(butimage_azul),al_get_bitmap_height(butimage_azul),980,380,40,40,0);
+                }
+                if(but_16 == 0){
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,430,40,40,0);
+                }else if(but_16 == 1){
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,430,40,40,0);
+                }else if(but_16 == 2){
+                    al_draw_scaled_bitmap(butimage_azul,0,0,al_get_bitmap_width(butimage_azul),al_get_bitmap_height(butimage_azul),980,430,40,40,0);
+                }
+                if(but_17 == 0){
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,480,40,40,0);
+                }else if(but_17 == 1){
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,480,40,40,0);
+                }else if(but_17 == 2){
+                    al_draw_scaled_bitmap(butimage_azul,0,0,al_get_bitmap_width(butimage_azul),al_get_bitmap_height(butimage_azul),980,480,40,40,0);
+                }
+                if(but_18 == 0){
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,530,40,40,0);
+                }else if(but_18 == 1){
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,530,40,40,0);
+                }else if(but_18 == 2){
+                    al_draw_scaled_bitmap(butimage_azul,0,0,al_get_bitmap_width(butimage_azul),al_get_bitmap_height(butimage_azul),980,530,40,40,0);
+                }
+                if(but_19 == 0){
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,580,40,40,0);
+                }else if(but_19 == 1){
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,580,40,40,0);
+                }else if(but_19 == 2){
+                    al_draw_scaled_bitmap(butimage_azul,0,0,al_get_bitmap_width(butimage_azul),al_get_bitmap_height(butimage_azul),980,580,40,40,0);
+                }
+                if(but_20 == 0){
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,630,40,40,0);
+                }else if(but_20 == 1){
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,630,40,40,0);
+                }else if(but_20 == 2){
+                    al_draw_scaled_bitmap(butimage_azul,0,0,al_get_bitmap_width(butimage_azul),al_get_bitmap_height(butimage_azul),980,630,40,40,0);
                 }
                 al_draw_scaled_bitmap(butimage_confirmar,0,0,al_get_bitmap_width(butimage_confirmar),al_get_bitmap_height(butimage_confirmar),1180,630,40,40,0);
                 al_draw_scaled_bitmap(butimage_voltar,0,0,al_get_bitmap_width(butimage_voltar),al_get_bitmap_height(butimage_voltar),0,0,40,40,0);
