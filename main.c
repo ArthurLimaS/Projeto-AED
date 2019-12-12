@@ -284,6 +284,19 @@ int main()
     al_init();
     al_init_image_addon();
     al_install_mouse();
+    al_install_audio();
+    al_init_acodec_addon();
+    al_reserve_samples(20);
+
+    //SOUND
+    ALLEGRO_SAMPLE *button;
+    ALLEGRO_SAMPLE_INSTANCE *inst_button;
+    button = al_load_sample("sounds/button.ogg");
+    inst_button = al_create_sample_instance(button);
+    al_attach_sample_instance_to_mixer(inst_button,al_get_default_mixer());
+    al_set_sample_instance_gain(inst_button,1.0);
+
+
 
     al_get_display_mode(al_get_num_display_modes() - 1, &disp_data);
     al_set_new_display_flags(ALLEGRO_FULLSCREEN);
@@ -293,9 +306,9 @@ int main()
     int pos_x = 0, pos_y = 0;
     int fechar = 0;
     int but_matching = 0;
-
+    int confirmar = 0 , voltar =0, desligar = 0;
     int but_1 = 0,but_2 = 0,but_3 = 0,but_4 = 0,but_5 = 0,but_6 = 0,but_7 = 0,but_8 = 0,but_9 = 0,but_10 = 0;
-
+    int but_11 = 0,but_12 = 0,but_13 = 0,but_14 = 0,but_15 = 0,but_16 = 0,but_17 = 0,but_18 = 0,but_19 = 0,but_20 = 0;
     event_queue = al_create_event_queue();
     al_register_event_source(event_queue, al_get_display_event_source(display));
     al_register_event_source(event_queue,al_get_mouse_event_source());
@@ -303,10 +316,14 @@ int main()
 
     ALLEGRO_BITMAP *image = al_load_bitmap("images/menu/download.jpg");
     ALLEGRO_BITMAP *start = al_load_bitmap("images/menu/start.png");
+    ALLEGRO_BITMAP *sair = al_load_bitmap("images/menu/sair.png");
     ALLEGRO_BITMAP *shortest = al_load_bitmap("images/menu/shortest.png");
     ALLEGRO_BITMAP *fundo_matching = al_load_bitmap("images/matchingPage/fundo.jpg");
-     ALLEGRO_BITMAP *butimage_vermelho= al_load_bitmap("images/matchingPage/butVermelho.png");
-      ALLEGRO_BITMAP *butimage_verde = al_load_bitmap("images/matchingPage/butVerde.png");
+    ALLEGRO_BITMAP *butimage_vermelho= al_load_bitmap("images/matchingPage/butVermelho.png");
+    ALLEGRO_BITMAP *butimage_verde = al_load_bitmap("images/matchingPage/butVerde.png");
+    ALLEGRO_BITMAP *butimage_confirmar= al_load_bitmap("images/matchingPage/but_confirmar.png");
+    ALLEGRO_BITMAP *butimage_voltar = al_load_bitmap("images/matchingPage/but_voltar.png");
+
 
     while(1){
         while(fechar == 0){
@@ -323,6 +340,12 @@ int main()
                 if(pos_x >= 610 && pos_x <740 && pos_y > 260 && pos_y < 380){
                     fechar = 1;
                     but_matching = 1;
+                    al_play_sample_instance(inst_button);
+                    break;
+                }else if(pos_x >= 630 && pos_x <760 && pos_y > 620 && pos_y < 740){
+                    al_play_sample_instance(inst_button);
+                    fechar = 1;
+                    desligar = 1;
                     break;
                 }
             }
@@ -331,6 +354,7 @@ int main()
                 al_draw_scaled_bitmap(image,0,0,al_get_bitmap_width(image),al_get_bitmap_height(image),0,0,SCREEN_W,SCREEN_H,0);
                 al_draw_scaled_bitmap(start,0,0,al_get_bitmap_width(start),al_get_bitmap_height(start),630,280,100,100,0);
                 al_draw_scaled_bitmap(shortest,0,0,al_get_bitmap_width(shortest),al_get_bitmap_height(shortest),630,450,100,100,0);
+                al_draw_scaled_bitmap(sair,0,0,al_get_bitmap_width(sair),al_get_bitmap_height(sair),630,620,100,100,0);
 
                 //desenha com as cordenada
                 if(pos_x >= 610 && pos_x <740 && pos_y > 260 && pos_y < 380){
@@ -338,6 +362,8 @@ int main()
 
                 }else if(pos_x >= 610 && pos_x <740 && pos_y > 420 && pos_y < 540){
                     al_draw_scaled_bitmap(shortest,0,0,al_get_bitmap_width(shortest),al_get_bitmap_height(shortest),610,430,130,130,0);
+                }else if(pos_x >= 630 && pos_x <760 && pos_y > 620 && pos_y < 740){
+                    al_draw_scaled_bitmap(sair,0,0,al_get_bitmap_width(sair),al_get_bitmap_height(sair),610,600,130,130,0);
                 }
             }
 
@@ -355,45 +381,229 @@ int main()
                 but_matching = 0;
                 break;
             }else if(ev2.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN){
-                if(pos_x >= 230 && pos_x <270 && pos_y > 180 && pos_y < 210){
-                    if(but_1 == 0){
-                    but_1 = 1;
-                    }else{
-                    but_1 = 0;
+                if(confirmar == 0){
+                    if((pos_x >= 230 && pos_x <270 && pos_y > 180 && pos_y < 210)||(pos_x >= 980 && pos_x <1020 && pos_y > 180 && pos_y < 210)){
+                        al_stop_sample_instance(inst_button);
+                        al_play_sample_instance(inst_button);
+                        if(but_1 == 0){
+                            but_1 = 1;
+                            but_11 = 1;
+                        }else{
+                            but_1 = 0;
+                            but_11 = 0;
+                        }
+                    }else if((pos_x >= 230 && pos_x <270 && pos_y > 230 && pos_y < 260)||(pos_x >= 980 && pos_x <1020 && pos_y > 230 && pos_y < 260)){
+                        al_stop_sample_instance(inst_button);
+                        al_play_sample_instance(inst_button);
+                        if(but_2 == 0){
+                            but_2 = 1;
+                            but_12 = 1;
+                        }else{
+                            but_2 = 0;
+                            but_12 = 0;
+                        }
+                    }else if((pos_x >= 230 && pos_x <270 && pos_y > 280 && pos_y < 310)||(pos_x >= 980 && pos_x <1020 && pos_y > 280 && pos_y < 310)){
+                        al_stop_sample_instance(inst_button);
+                        al_play_sample_instance(inst_button);
+                        if(but_3 == 0){
+                            but_3 = 1;
+                            but_13 = 1;
+                        }else{
+                            but_3 = 0;
+                            but_13 = 0;
+                        }
+                    }else if((pos_x >= 230 && pos_x <270 && pos_y > 330 && pos_y < 360)||(pos_x >= 980 && pos_x <1020 && pos_y > 330 && pos_y < 360)){
+                        al_stop_sample_instance(inst_button);
+                        al_play_sample_instance(inst_button);
+                        if(but_4 == 0){
+                            but_4 = 1;
+                            but_14 = 1;
+                        }else{
+                            but_4 = 0;
+                            but_14 = 0;
+                        }
+                    }else if((pos_x >= 230 && pos_x <270 && pos_y > 380 && pos_y < 410)||(pos_x >= 980 && pos_x <1020 && pos_y > 380 && pos_y < 410)){
+                        al_stop_sample_instance(inst_button);
+                        al_play_sample_instance(inst_button);
+                        if(but_5 == 0){
+                            but_5 = 1;
+                            but_15 = 1;
+                        }else{
+                            but_5 = 0;
+                            but_15 = 0;
+                        }
+                    }else if((pos_x >= 230 && pos_x <270 && pos_y > 430 && pos_y < 460)||(pos_x >= 980 && pos_x <1020 && pos_y > 430 && pos_y < 460)){
+                        al_stop_sample_instance(inst_button);
+                        al_play_sample_instance(inst_button);
+                        if(but_6 == 0){
+                            but_6= 1;
+                            but_16 = 1;
+                        }else{
+                            but_6 = 0;
+                            but_16 = 0;
+                        }
+                    }else if((pos_x >= 230 && pos_x <270 && pos_y > 480 && pos_y < 510)||(pos_x >= 980 && pos_x <1020 && pos_y > 480 && pos_y < 510)){
+                        al_stop_sample_instance(inst_button);
+                        al_play_sample_instance(inst_button);
+                        if(but_7 == 0){
+                            but_7 = 1;
+                            but_17 = 1;
+                        }else{
+                            but_7 = 0;
+                            but_17 = 0;
+                        }
+                    }else if((pos_x >= 230 && pos_x <270 && pos_y > 530 && pos_y < 560)||(pos_x >= 980 && pos_x <1020 && pos_y > 530 && pos_y < 560)){
+                        al_stop_sample_instance(inst_button);
+                        al_play_sample_instance(inst_button);
+                        if(but_8 == 0){
+                            but_8 = 1;
+                            but_18 = 1;
+                        }else{
+                            but_8 = 0;
+                            but_18 = 0;
+                        }
+                    }else if((pos_x >= 230 && pos_x <270 && pos_y > 580 && pos_y < 610)||(pos_x >= 980 && pos_x <1020 && pos_y > 580 && pos_y < 610)){
+                        al_stop_sample_instance(inst_button);
+                        al_play_sample_instance(inst_button);
+                        if(but_9 == 0){
+                            but_9 = 1;
+                            but_19 = 1;
+                        }else{
+                            but_9 = 0;
+                            but_19 = 0;
                     }
-                }
+                    }else if((pos_x >= 230 && pos_x <270 && pos_y > 630 && pos_y < 680)||(pos_x >= 980 && pos_x <1020 && pos_y > 630 && pos_y < 680)){
+                        al_stop_sample_instance(inst_button);
+                        al_play_sample_instance(inst_button);
+                        if(but_10 == 0){
+                            but_10 = 1;
+                            but_20 = 1;
+                        }else{
+                            but_10 = 0;
+                            but_20 = 0;
+                        }
+                    }else if(pos_x >=0 && pos_x <=40 && pos_y >= 0 && pos_y <= 40){
+                        if(voltar == 0){
+                            but_matching = 0;
+                            fechar = 0;
+                            but_1 = 0,but_2 = 0,but_3 = 0,but_4 = 0,but_5 = 0,but_6 = 0,but_7 = 0,but_8 = 0,but_9 = 0,but_10 = 0;
+                            but_11 = 0,but_12 = 0,but_13 = 0,but_14 = 0,but_15 = 0,but_16 = 0,but_17 = 0,but_18 = 0,but_19 = 0,but_20 = 0;
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            break;
+                        }
+                    }else if(pos_x >=1180 && pos_x <=1260 && pos_y >= 630 && pos_y <= 665){
+                        confirmar = 1;
+                        voltar = 1;
+                        al_stop_sample_instance(inst_button);
+                        al_play_sample_instance(inst_button);
+                    }
+            }if(confirmar == 1){
+                if(pos_x >=0 && pos_x <=40 && pos_y >= 0 && pos_y <= 40){
+                    confirmar = 0;
+                    voltar = 0;
+                    al_stop_sample_instance(inst_button);
+                    al_play_sample_instance(inst_button);
+                }else if(pos_x >=1180 && pos_x <=1260 && pos_y >= 630 && pos_y <= 665){
+                        //FAZER CONFIRMAR PARA RODAR O CÓDIGO
+                        al_stop_sample_instance(inst_button);
+                        al_play_sample_instance(inst_button);
+                    }
+            }
             }
 
             if(al_is_event_queue_empty(event_queue)){
                 al_draw_scaled_bitmap(fundo_matching,0,0,al_get_bitmap_width(fundo_matching),al_get_bitmap_height(fundo_matching),0,0,SCREEN_W,SCREEN_H,0);
                 if(but_1 == 0){
-                al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,180,40,40,0);
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,180,40,40,0);
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,180,40,40,0);
                 }else{
-                al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),230,180,40,40,0);
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),230,180,40,40,0);
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,180,40,40,0);
                 }
-                al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,230,40,40,0);
-                al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,280,40,40,0);
-                al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,330,40,40,0);
-                al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,380,40,40,0);
-                al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,430,40,40,0);
-                al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,480,40,40,0);
-                al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,530,40,40,0);
-                al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,580,40,40,0);
-                al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,630,40,40,0);
+                if(but_2 == 0){
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,230,40,40,0);
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,230,40,40,0);
+                }else{
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),230,230,40,40,0);
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,230,40,40,0);
+                }
+                if(but_3 == 0){
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,280,40,40,0);
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,280,40,40,0);
+                }else{
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),230,280,40,40,0);
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,280,40,40,0);
+                }
+                if(but_4 == 0){
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,330,40,40,0);
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,330,40,40,0);
+                }else{
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),230,330,40,40,0);
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,330,40,40,0);
+                }
+                if(but_5 == 0){
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,380,40,40,0);
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,380,40,40,0);
+                }else{
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),230,380,40,40,0);
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,380,40,40,0);
+                }
+                if(but_6 == 0){
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,430,40,40,0);
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,430,40,40,0);
+                }else{
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),230,430,40,40,0);
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,430,40,40,0);
+                }
+                if(but_7 == 0){
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,480,40,40,0);
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,480,40,40,0);
+                }else{
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),230,480,40,40,0);
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,480,40,40,0);
+                }
+                if(but_8 == 0){
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,530,40,40,0);
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,530,40,40,0);
+                }else{
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),230,530,40,40,0);
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,530,40,40,0);
+                }
+                if(but_9 == 0){
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,580,40,40,0);
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,580,40,40,0);
+                }else{
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),230,580,40,40,0);
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,580,40,40,0);
+                }
+                if(but_10 == 0){
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,630,40,40,0);
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,630,40,40,0);
+                }else{
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),230,630,40,40,0);
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,630,40,40,0);
+                }
+
+                al_draw_scaled_bitmap(butimage_confirmar,0,0,al_get_bitmap_width(butimage_confirmar),al_get_bitmap_height(butimage_confirmar),1180,630,40,40,0);
+                al_draw_scaled_bitmap(butimage_voltar,0,0,al_get_bitmap_width(butimage_voltar),al_get_bitmap_height(butimage_voltar),0,0,40,40,0);
+
 
                 //desenha com as cordenada
-                if(pos_x >= 230 && pos_x <270 && pos_y > 180 && pos_y < 210){
-                    //al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,180,60,60,0);
+                if(pos_x >= 1180 && pos_x <1260 && pos_y > 630 && pos_y < 665){
+                    al_draw_scaled_bitmap(butimage_confirmar,0,0,al_get_bitmap_width(butimage_confirmar),al_get_bitmap_height(butimage_confirmar),1160,620,60,60,0);
 
-                }else if(pos_x >= 610 && pos_x <740 && pos_y > 420 && pos_y < 540){
-                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),610,430,130,130,0);
+                }else if(pos_x >= 0 && pos_x <= 40 && pos_y >= 0 && pos_y <= 40){
+                     al_draw_scaled_bitmap(butimage_voltar,0,0,al_get_bitmap_width(butimage_voltar),al_get_bitmap_height(butimage_voltar),-4,-4,60,60,0);
                 }
             }
 
             al_flip_display();
         }
 
-
+        if(desligar == 1){
+            break;
+        }
     }
 
     //Screen Rest Time
