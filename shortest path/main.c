@@ -124,64 +124,149 @@ no* inserir(no* atual, int custo, int idin, int id)
 
 int main(void)
 {
-    no* primeiro, *a, *b, *c, *d, *e, *f, *g, *h, *i, *j;
+    no* primeiro, *a, *b, *c, *d, *e, *f, *g, *h, *i, *j, *k, *l, *m, *n, *o;
+
+    //Primeiro aponta para A , A aponta para Primeiro
     primeiro->id = 0;
-    primeiro->pri = a;
     a->id = 3;
+    primeiro->pri = a;
     a->retPri = primeiro;
     primeiro->valPri = 8;
-    a->valRetPri = 8;
+    a ->valRetPri = 8;
+
+    //Primeiro aponta para B, B aponta para Primeiro
     b->id = 7;
     primeiro->seg = b;
-    b->retPri = primeiro;
+    b->retSeg = primeiro;
     b->valRetPri = 4;
     primeiro->valSeg = 4;
+
+    //Primeiro aponta para C, C aponta para Primeiro
     primeiro->ter = c;
-    c->retPri = primeiro;
+    c->retTer = primeiro;
     c->id = 11;
-    primeiro->valTer = 6;
-    c->valRetTer = 6;
-    a->pri = d;
-    d->retPri = a;
+    primeiro->valTer=6;
+    c->valRetPri = 6;
+
+    //B aponta para D , D aponta para B
+
+    b->pri = d;
+    d->retPri = b;
     d->id = 19;
-    a->valPri = 9;
+    b->valPri = 9;
     d->valRetPri = 9;
-    a->seg = e;
-    e->retPri = a;
+
+    // D aponta para E, E aponta para D
+
+    d->pri = e;
+    e->retPri = d;
     e->id = 29;
-    a->valSeg = 3;
-    e->valRetPri = 3;
-    b->pri = e;
-    e->retSeg = b;
-    b->valPri = 4;
-    e->valRetSeg = 4;
-    b->seg = f;
-    f->retPri = b;
-    f->id = 37;
-    b->valSeg = 5;
-    f->valRetPri = 5;
-    c->pri = g;
-    g->retPri = c;
-    g->id = 41;
-    c->valPri = 13;
-    g->valRetPri = 13;
-    e->pri = h;
-    h->retPri = e;
-    h->id = 43;
-    e->valPri = 7;
-    h->valRetPri = 7;
-    h->pri = i;
-    i->retPri = h;
-    i->id = 47;
-    i->valRetPri = 6;
-    h->valPri = 6;
-    h->seg = j;
-    j->retPri = h;
-    j->id = 53;
-    j->valRetPri = 6;
-    h->valSeg = 6;
+    d->valPri = 4;
+    e->valRetPri = 4;
+
+   //C aponta para F, F aponta para C
+
+   c->pri = f;
+   f->retPri = c;
+   f->id = 37;
+   c->valPri = 4;
+   f->valRetPri = 4;
+
+   //F aponta para G, G aponta para f
+
+   f->pri = g;
+   g->retPri = f;
+   g->id = 41;
+   f->valPri = 6;
+   g->valRetPri = 6;
+
+   //G aponta para H, H aponta para G
+
+   g->pri = h;
+   h->retPri = g;
+   h->id = 43;
+   g->valPri = 9;
+   h->valRetPri = 9;
+
+   //H aponta para I, I aponta para H
+   h->pri = i;
+   i->retPri = h;
+   i->id = 47;
+   h->valPri = 10;
+   i->valRetPri = 10;
+
+   //I APONTA PARA J, J APONTA PARA I
+
+   i->pri = j;
+   j->retPri = i;
+   j-> id = 53;
+   i->valPri = 5;
+   j->valRetPri=5;
+
+  //J aponta para K, K aponta para J
+
+   j->pri = k;
+   k->retPri = j;
+   k->id = 59;
+   j->valPri = 8;
+   k->valRetPri = 8;
+
+  //J aponta L, L aponta para J
+
+   j->seg = l;
+   l->retPri = j;
+   l->id = 61;
+   j->valSeg = 10;
+   l->valRetSeg = 10;
+
+  //L aponta para M, M aponta para L
+
+    l->pri = m;
+    m->retPri = l;
+    m->id = 63;
+    l->valPri = 7;
+    m->valRetPri = 7;
 
 
+   //M aponta para N, N aponta para M
+
+    m->pri = n;
+    n->retPri = m;
+    n->id = 67;
+    m->valPri = 10;
+    n->valRetPri = 10;
+
+
+   //M aponta para O, O aponta para M
+
+    m->seg = o;
+    o->retPri=m;
+    o->id = 71;
+    m->valSeg = 4;
+    o->valRetSeg = 4;
+
+   // N aponta para O, O aponta para N
+
+    n->pri = o;
+    o->retPri = n;
+    n->valPri = 6;
+    o->valRetPri = 6;
+
+
+    // D aponta para G, G aponta para D
+
+    d-> seg = g;
+    g->retSeg = d;
+    d->valSeg = 2;
+    g->valRetSeg = 2;
+
+
+    // F aponta para I, I aponta para F
+
+    f-> seg = i;
+    i-> retSeg = f;
+    f->valSeg = 4;
+    i->valRetSeg = 4;
 
 
 
