@@ -306,6 +306,7 @@ int main()
     int pos_x = 0, pos_y = 0;
     int fechar = 0;
     int but_matching = 0;
+    int but_shortest = 0;
     int confirmar = 0 , voltar =0, desligar = 0;
     int but_1 = 0,but_2 = 0,but_3 = 0,but_4 = 0,but_5 = 0,but_6 = 0,but_7 = 0,but_8 = 0,but_9 = 0,but_10 = 0;
     int but_11 = 0,but_12 = 0,but_13 = 0,but_14 = 0,but_15 = 0,but_16 = 0,but_17 = 0,but_18 = 0,but_19 = 0,but_20 = 0;
@@ -320,6 +321,7 @@ int main()
     ALLEGRO_BITMAP *shortest = al_load_bitmap("images/menu/shortest.png");
     ALLEGRO_BITMAP *fundo_matching = al_load_bitmap("images/matchingPage/fundo.jpg");
     ALLEGRO_BITMAP *butimage_vermelho= al_load_bitmap("images/matchingPage/butVermelho.png");
+    ALLEGRO_BITMAP *butimage_azul= al_load_bitmap("images/matchingPage/but_azul.png");
     ALLEGRO_BITMAP *butimage_verde = al_load_bitmap("images/matchingPage/butVerde.png");
     ALLEGRO_BITMAP *butimage_confirmar= al_load_bitmap("images/matchingPage/but_confirmar.png");
     ALLEGRO_BITMAP *butimage_voltar = al_load_bitmap("images/matchingPage/but_voltar.png");
@@ -346,6 +348,11 @@ int main()
                     al_play_sample_instance(inst_button);
                     fechar = 1;
                     desligar = 1;
+                    break;
+                }else if(pos_x >= 610 && pos_x <740 && pos_y > 420 && pos_y < 540){
+                    fechar = 1;
+                    but_shortest = 1;
+                    al_play_sample_instance(inst_button);
                     break;
                 }
             }
@@ -508,7 +515,47 @@ int main()
                         //FAZER CONFIRMAR PARA RODAR O CÓDIGO
                         al_stop_sample_instance(inst_button);
                         al_play_sample_instance(inst_button);
-                    }
+                }else if(pos_x >= 230 && pos_x <270 && pos_y > 180 && pos_y < 210){
+                        if(but_1 == 1){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_1 = 2;
+                        }else if(but_1 == 2){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_1 = 1;
+                        }
+                }else if(pos_x >= 230 && pos_x <270 && pos_y > 230 && pos_y < 260){
+                        if(but_2 == 1){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_2 = 2;
+                        }else if(but_2 == 2){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_2 = 1;
+                        }
+                }else if(pos_x >= 980 && pos_x <1020 && pos_y > 180 && pos_y < 210){
+                        if(but_11 == 1){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_11 = 2;
+                        }else if(but_11 == 2){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_11 = 1;
+                        }
+                }else if(pos_x >= 980 && pos_x <1020 && pos_y > 230 && pos_y < 260){
+                        if(but_12 == 1){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_12 = 2;
+                        }else if(but_12 == 2){
+                            al_stop_sample_instance(inst_button);
+                            al_play_sample_instance(inst_button);
+                            but_12 = 1;
+                        }
+                }
             }
             }
 
@@ -516,17 +563,17 @@ int main()
                 al_draw_scaled_bitmap(fundo_matching,0,0,al_get_bitmap_width(fundo_matching),al_get_bitmap_height(fundo_matching),0,0,SCREEN_W,SCREEN_H,0);
                 if(but_1 == 0){
                     al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,180,40,40,0);
-                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,180,40,40,0);
-                }else{
+                }else if(but_1 == 1){
                     al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),230,180,40,40,0);
-                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,180,40,40,0);
+                }else if(but_1 == 2){
+                    al_draw_scaled_bitmap(butimage_azul,0,0,al_get_bitmap_width(butimage_azul),al_get_bitmap_height(butimage_azul),230,180,40,40,0);
                 }
                 if(but_2 == 0){
                     al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,230,40,40,0);
-                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,230,40,40,0);
-                }else{
+                }else if(but_2 == 1){
                     al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),230,230,40,40,0);
-                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,230,40,40,0);
+                }else if(but_2 == 2){
+                    al_draw_scaled_bitmap(butimage_azul,0,0,al_get_bitmap_width(butimage_azul),al_get_bitmap_height(butimage_azul),230,230,40,40,0);
                 }
                 if(but_3 == 0){
                     al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),230,280,40,40,0);
@@ -584,7 +631,20 @@ int main()
                     al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),230,630,40,40,0);
                     al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,630,40,40,0);
                 }
-
+                if(but_11 == 0){
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,180,40,40,0);
+                }else if(but_11 == 1){
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,180,40,40,0);
+                }else if(but_11 == 2){
+                    al_draw_scaled_bitmap(butimage_azul,0,0,al_get_bitmap_width(butimage_azul),al_get_bitmap_height(butimage_azul),980,180,40,40,0);
+                }
+                if(but_12 == 0){
+                    al_draw_scaled_bitmap(butimage_vermelho,0,0,al_get_bitmap_width(butimage_vermelho),al_get_bitmap_height(butimage_vermelho),980,230,40,40,0);
+                }else if(but_12 == 1){
+                    al_draw_scaled_bitmap(butimage_verde,0,0,al_get_bitmap_width(butimage_verde),al_get_bitmap_height(butimage_verde),980,230,40,40,0);
+                }else if(but_12 == 2){
+                    al_draw_scaled_bitmap(butimage_azul,0,0,al_get_bitmap_width(butimage_azul),al_get_bitmap_height(butimage_azul),980,230,40,40,0);
+                }
                 al_draw_scaled_bitmap(butimage_confirmar,0,0,al_get_bitmap_width(butimage_confirmar),al_get_bitmap_height(butimage_confirmar),1180,630,40,40,0);
                 al_draw_scaled_bitmap(butimage_voltar,0,0,al_get_bitmap_width(butimage_voltar),al_get_bitmap_height(butimage_voltar),0,0,40,40,0);
 
@@ -598,6 +658,33 @@ int main()
                 }
             }
 
+            al_flip_display();
+        }
+
+        while(but_shortest){
+            ALLEGRO_EVENT ev3;
+            al_wait_for_event(event_queue,&ev3);
+
+            if(ev3.type == ALLEGRO_EVENT_MOUSE_AXES){
+                pos_x = ev3.mouse.x;
+                pos_y = ev3.mouse.y;
+            }else if(ev3.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
+                but_shortest = 0;
+                break;
+            }
+
+            else if(ev3.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN){
+                //FAZ ALGO QUANDO O MOUSE FOR CLICADO
+                //AI VC COLOCA AS CORDENADAS (pos_x > 100 && pos_x<200 && pos_y>50 etc){ código pra fazer algo, MAS AQ NAO MOSTRA NA TELA}
+            }
+
+            if(al_is_event_queue_empty(event_queue)){
+                //DESENHA NA TELA OQ VC QUISER E PODE DESENHAR PELA CORDENADA DO MOUSE TBM , se o mouse tiver entre dois pontos ele desenha algo,etc
+                al_draw_scaled_bitmap(fundo_matching,0,0,al_get_bitmap_width(fundo_matching),al_get_bitmap_height(fundo_matching),0,0,SCREEN_W,SCREEN_H,0);
+                //Esse al draw desenha a imagem q vc criou lá em cima q eu chamei de fundo matching,e onde tem 0,0,SCREENW,SCREEN H ,
+                // 0, 0 É A COORDENADA DA IMAGEM,E ONDE TA SCREEN É O TAMANHO QUE VOCE QUER QUE A IMAGEM TENHA
+            }
+            //ATUALIZA TELA
             al_flip_display();
         }
 
