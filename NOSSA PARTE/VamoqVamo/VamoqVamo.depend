@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1576252759 source:c:\users\locodrathecrow\documents\github\projeto-aed\nossa parte\vamoqvamo\main.c
+	<stdio.h>
+	<stdlib.h>
+	<limits.h>
+

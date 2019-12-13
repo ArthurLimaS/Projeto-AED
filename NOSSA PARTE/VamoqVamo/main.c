@@ -33,21 +33,21 @@ typedef struct grafo
     VERTICE *adj; //ARRANJO DE VERTICES
 }GRAFO;
 
-//s = origem
-//p = predecessor
+//orig = origem
+//pres = predecessor
 //d = distancia,"peso"
 //g = vertices
 
-void inicializaD(GRAFO *g, int *d, int *p, int s)
+void inicializaD(GRAFO *g, int *dis, int *pres, int orig)
 {
     int v;
     for(v=0;v<g->vertices;v++)
         {
-            d[v] = INT_MAX/2;
-            p[v] = -1;
+            dis[v] = INT_MAX/2;
+            pres[v] = -1;
 
         }
-    d[s] = 0;
+    dis[orig] = 0;
 }
 
 //FUNÇAO QUE CRIA GRAFOS
@@ -146,7 +146,7 @@ void imprime(GRAFO *gr)
 }
 //FUNÇÃO RELAXAMENTO
 //VERIFICA SE A MENOR DISTANCIA ATUAL É MAIOR QUE A DISTANCIA ATUAL + O PESO DO NO ATUAL
-void relaxa(GRAFO *g,int *d,int*p, int u, int v)
+void relaxa(GRAFO *g,int *dis,int*pres, int u, int v)
 {
     //U É O VERTICE ATUAL, V É O VERTICE ADJACENTE SENDO COMPARADO
     //VOU NO GRAFO G, PEGO A CABEÇA(INICIO) DA LISTA DE ADJACENCIA DE U
@@ -159,10 +159,10 @@ void relaxa(GRAFO *g,int *d,int*p, int u, int v)
         if(ad)
             {
                 //FAZ O RELAXAMENTO, SE O CAMINHO É MENOR
-               if(d[v] > d[u] + ad->peso)
+               if(dis[v] > dis[u] + ad->peso)
                   {
-                     d[v] = d[u] + ad->peso;
-                     p[v] = u;
+                     dis[v] = dis[u] + ad->peso;
+                     pres[v] = u;
                   }
             }
 }
@@ -181,7 +181,7 @@ bool existeAberto(GRAFO *g, int *aberto)
 
 
 //FUNÇÃO QUE INFORMA QUAL A MENOR DISTANCIA DENTRE TODOS OS VERTICES ABERTOS
-int menorDist(GRAFO *g,int *aberto,int *d)
+int menorDist(GRAFO *g,int *aberto,int *dis)
 {
     int i;
     for(i=0; i<g->vertices;i++)
@@ -189,21 +189,21 @@ int menorDist(GRAFO *g,int *aberto,int *d)
     if (i==g->vertices) return(-1);
     int menor = i;
     for(i=menor+1; i<g->vertices;i++)
-        if(aberto[i] && (d[menor]>d[i]))
+        if(aberto[i] && (dis[menor]>dis[i]))
           menor = i;
     return(menor);
 }
 
 
-int *dijkstra(GRAFO *g, int s)
+int *dijkstra(GRAFO *g, int orig)
 {
     //ALOCA ESPAÇO PARA O ARRNJO DAS DISTANCIAS
-    int *d = (int *)malloc(g->vertices*sizeof(int));
-    int p[g->vertices];
+    int *dis = (int *)malloc(g->vertices*sizeof(int));
+    int pres[g->vertices];
     //ALOCA ARRANJO PARA OS PREDECESSORES
     bool aberto[g->vertices];
     //INICIALIZA AS DISTANCIAS E OS PREDECESSORES, BASEADO NO NO S COMO ORIGEM
-    inicializaD(g,d,p,s);
+    inicializaD(g,dis,pres,orig);
 
     //SETAR TODOS OS NOS COMO ABERTOS
     int i;
@@ -217,16 +217,16 @@ int *dijkstra(GRAFO *g, int s)
         //RETORNAMOS AS DISTANCIAS APOS TODO O GRAFO FOR PERCORRIDO
         while (existeAberto(g,aberto))
             {
-                int u = menorDist(g,aberto,d);
+                int u = menorDist(g,aberto,dis);
                 aberto[u] = false;
                 ADJACENCIA *ad = g->adj[u].cab;
                 while(ad)
                     {
-                        relaxa(g,d,p,u,ad->vertice);
+                        relaxa(g,dis,pres,u,ad->vertice);
                         ad = ad->prox;
                     }
             }
-        return(d);
+        return(dis);
 }
 
 int main()
@@ -237,47 +237,58 @@ int main()
     //ou seja, os nós adjacentes
 
     //CRIA UM GRAFO COM 6 NOS
-     GRAFO *gr = criaGrafo(6);
+     GRAFO *gr = criaGrafo(7);
 
     //DIGITAMOS AS ARESTAS
     //QUEM ESTA LIGADO A QUEM E QUAL O PESO
     //CRIA UMA ARESTA DO VERTICE 0 AO VERTICE 1, COM PESO 10
-    criaAresta(gr, 0, 1, 10);
+    criaAresta(gr, 0, 1, 15);
     //CRIAMOS OUTRA ARESTA NO SENTIDO CONTRARIO
-    criaAresta(gr, 1, 0, 10);
+    criaAresta(gr, 1, 0, 15);
 
-    criaAresta(gr, 0, 2, 5);
-    criaAresta(gr, 2, 0, 5);
+    criaAresta(gr, 0, 3, 20);
+    criaAresta(gr, 3, 0, 20);
 
-    criaAresta(gr, 2, 1, 3);
-    criaAresta(gr, 1, 2, 3);
+    criaAresta(gr, 1, 2, 25);
+    criaAresta(gr, 2, 1, 25);
 
-    criaAresta(gr, 1, 3, 1);
-    criaAresta(gr, 3, 1, 1);
+    criaAresta(gr, 1, 3, 35);
+    criaAresta(gr, 3, 1, 35);
 
-    criaAresta(gr, 2, 3, 8);
-    criaAresta(gr, 3, 2, 8);
+    criaAresta(gr, 1, 4, 28);
+    criaAresta(gr, 4, 1, 28);
 
-    criaAresta(gr, 2, 4, 2);
-    criaAresta(gr, 4, 2, 2);
+    criaAresta(gr, 2, 4, 20);
+    criaAresta(gr, 4, 2, 20);
 
-    criaAresta(gr, 4, 5, 6);
-    criaAresta(gr, 5, 4, 6);
+    criaAresta(gr, 3, 4, 100);
+    criaAresta(gr, 4, 3, 100);
 
-    criaAresta(gr, 3, 5, 4);
-    criaAresta(gr, 5, 3, 4);
+    criaAresta(gr, 3, 5, 30);
+    criaAresta(gr, 5, 3, 30);
 
-    criaAresta(gr, 3, 4, 4);
-    criaAresta(gr, 4, 3, 4);
+    criaAresta(gr, 4, 5, 70);
+    criaAresta(gr, 5, 4, 70);
+
+    criaAresta(gr, 5, 6, 42);
+    criaAresta(gr, 6, 5, 42);
+
+    criaAresta(gr, 6, 4, 40);
+    criaAresta(gr, 4, 6, 40);
 
     imprime(gr);
 
+
+    int inicio, chegada;
+    scanf("%i", &inicio);
+    printf("\n");
+    scanf("%i", &chegada);
     //AQUI DEFINIMOS A ORIGEM DO GRAFO
-    int *r = dijkstra(gr,0);
+    int *r = dijkstra(gr,inicio);
 
     int i;
     for(i=0;i<gr->vertices;i++)
-        printf("D(v0 -> v%d) = %d\n",i,r[i]);
+        printf("D(v%d -> v%d) = %d\n",inicio,i,r[i]);
 
     return 0;
 }
