@@ -80,7 +80,7 @@ Lista* buscar(Lista* atual,No* ponto){
     }
 }
 
-Lista* buscar_por_index(Lista* atual, int index)
+No* buscar_por_index(Lista* atual, int index)
 {
     if(atual == NULL)
     {
@@ -88,7 +88,7 @@ Lista* buscar_por_index(Lista* atual, int index)
     }
     else if(index == 0)
     {
-        return atual;
+        return atual->ponto;
     }
     else
     {
@@ -279,7 +279,8 @@ void imprimirLista(Lista* atual){
         printf("%i=>",aux->valor);
         imprimirLista(atual->proximo);
     }else{
-    printf("NULL");
+        printf("NULL");
+        printf("\n");
     }
 }
 
@@ -311,16 +312,16 @@ Lista* gerarGrafo(int tam, int matrix[tam][tam])
     printf("Checkpoint 1");
 
     Lista* receptores = NULL;
-    receptores = inserir(nos, inserirNo(11, NULL, 1));
-    receptores = inserir(nos, inserirNo(12, NULL, 1));
-    receptores = inserir(nos, inserirNo(13, NULL, 1));
-    receptores = inserir(nos, inserirNo(14, NULL, 1));
-    receptores = inserir(nos, inserirNo(15, NULL, 1));
-    receptores = inserir(nos, inserirNo(16, NULL, 1));
-    receptores = inserir(nos, inserirNo(17, NULL, 1));
-    receptores = inserir(nos, inserirNo(18, NULL, 1));
-    receptores = inserir(nos, inserirNo(19, NULL, 1));
-    receptores = inserir(nos, inserirNo(20, NULL, 1));
+    receptores = inserir(receptores, inserirNo(11, NULL, 1));
+    receptores = inserir(receptores, inserirNo(12, NULL, 1));
+    receptores = inserir(receptores, inserirNo(13, NULL, 1));
+    receptores = inserir(receptores, inserirNo(14, NULL, 1));
+    receptores = inserir(receptores, inserirNo(15, NULL, 1));
+    receptores = inserir(receptores, inserirNo(16, NULL, 1));
+    receptores = inserir(receptores, inserirNo(17, NULL, 1));
+    receptores = inserir(receptores, inserirNo(18, NULL, 1));
+    receptores = inserir(receptores, inserirNo(19, NULL, 1));
+    receptores = inserir(receptores, inserirNo(20, NULL, 1));
 
     printf("Checkpoint 2");
 
@@ -331,7 +332,7 @@ Lista* gerarGrafo(int tam, int matrix[tam][tam])
             if(matrix[i][j] == 1)
             {
                 printf("Checkpoint 2.5");
-                conectarNos(buscar_por_index(nos, i)->ponto, buscar_por_index(receptores, j)->ponto);
+                conectarNos(buscar_por_index(nos, i), buscar_por_index(receptores, j));
             }
         }
     }
@@ -340,88 +341,89 @@ Lista* gerarGrafo(int tam, int matrix[tam][tam])
 
     Lista* grafoPrincipal = NULL;
 
-    if(buscar_por_index(nos, 0)->ponto != NULL)
+    if(buscar_por_index(nos, 0)->conexao != NULL)
     {
-        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 0)->ponto);
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 0));
     }
-    if(buscar_por_index(nos, 1)->ponto != NULL)
+    if(buscar_por_index(nos, 1)->conexao != NULL)
     {
-        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 1)->ponto);
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 1));
     }
-    if(buscar_por_index(nos, 2)->ponto != NULL)
+    if(buscar_por_index(nos, 2)->conexao != NULL)
     {
-        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 2)->ponto);
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 2));
     }
-    if(buscar_por_index(nos, 3)->ponto != NULL)
+    if(buscar_por_index(nos, 3)->conexao != NULL)
     {
-        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 3)->ponto);
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 3));
     }
-    if(buscar_por_index(nos, 4)->ponto != NULL)
+    if(buscar_por_index(nos, 4)->conexao != NULL)
     {
-        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 4)->ponto);
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 4));
     }
-    if(buscar_por_index(nos, 5)->ponto != NULL)
+    if(buscar_por_index(nos, 5)->conexao != NULL)
     {
-        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 5)->ponto);
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 5));
     }
-    if(buscar_por_index(nos, 6)->ponto != NULL)
+    if(buscar_por_index(nos, 6)->conexao != NULL)
     {
-        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 6)->ponto);
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 6));
     }
-    if(buscar_por_index(nos, 7)->ponto != NULL)
+    if(buscar_por_index(nos, 7)->conexao != NULL)
     {
-        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 7)->ponto);
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 7));
     }
-    if(buscar_por_index(nos, 8)->ponto != NULL)
+    if(buscar_por_index(nos, 8)->conexao != NULL)
     {
-        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 8)->ponto);
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 8));
     }
-    if(buscar_por_index(nos, 9)->ponto != NULL)
+    if(buscar_por_index(nos, 9)->conexao != NULL)
     {
-        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 9)->ponto);
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 9));
     }
 
     printf("Checkpoint 4");
 
-    if(buscar_por_index(receptores, 0)->ponto != NULL)
+
+    if(buscar_por_index(receptores, 0)->conexao != NULL)
     {
-        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 0)->ponto);
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 0));
     }
-    if(buscar_por_index(receptores, 1)->ponto != NULL)
+    if(buscar_por_index(receptores, 1)->conexao != NULL)
     {
-        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 1)->ponto);
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 1));
     }
-    if(buscar_por_index(receptores, 2)->ponto != NULL)
+    if(buscar_por_index(receptores, 2)->conexao != NULL)
     {
-        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 2)->ponto);
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 2));
     }
-    if(buscar_por_index(receptores, 3)->ponto != NULL)
+    if(buscar_por_index(receptores, 3)->conexao != NULL)
     {
-        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 3)->ponto);
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 3));
     }
-    if(buscar_por_index(receptores, 4)->ponto != NULL)
+    if(buscar_por_index(receptores, 4)->conexao != NULL)
     {
-        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 4)->ponto);
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 4));
     }
-    if(buscar_por_index(receptores, 5)->ponto != NULL)
+    if(buscar_por_index(receptores, 5)->conexao != NULL)
     {
-        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 5)->ponto);
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 5));
     }
-    if(buscar_por_index(receptores, 6)->ponto != NULL)
+    if(buscar_por_index(receptores, 6)->conexao != NULL)
     {
-        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 6)->ponto);
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 6));
     }
-    if(buscar_por_index(receptores, 7)->ponto != NULL)
+    if(buscar_por_index(receptores, 7)->conexao != NULL)
     {
-        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 7)->ponto);
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 7));
     }
-    if(buscar_por_index(receptores, 8)->ponto != NULL)
+    if(buscar_por_index(receptores, 8)->conexao != NULL)
     {
-        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 8)->ponto);
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 8));
     }
-    if(buscar_por_index(receptores, 9)->ponto != NULL)
+    if(buscar_por_index(receptores, 9)->conexao != NULL)
     {
-        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 9)->ponto);
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 9));
     }
 
     printf("Checkpoint 5\n\n");
@@ -463,7 +465,7 @@ int main()
     int fechar = 0;
     int but_matching = 0;
     int but_shortest = 0;
-    int confirmar = 0, confirmar2 = 0, voltar =0, desligar = 0, flag = 0;
+    int confirmar = 0, voltar =0, desligar = 0, flag = 0;
     int but_1 = 0,but_2 = 0,but_3 = 0,but_4 = 0,but_5 = 0,but_6 = 0,but_7 = 0,but_8 = 0,but_9 = 0,but_10 = 0;
     int but_11 = 0,but_12 = 0,but_13 = 0,but_14 = 0,but_15 = 0,but_16 = 0,but_17 = 0,but_18 = 0,but_19 = 0,but_20 = 0;
     int selecionadoEsq = 0 , selecionadoDir = 0;
@@ -1385,6 +1387,21 @@ int main()
 
                 if(confirmar == 2 && flag == 0)
                 {
+                    if(pos_x >=0 && pos_x <=40 && pos_y >= 0 && pos_y <= 40)
+                    {
+                        voltar = 0;
+                        confirmar = 0;
+
+                        for(int i = 0; i < 10; i++)
+                        {
+                            for(int j = 0; j < 10; j++)
+                            {
+                                linhas[i][j] = 0;
+                            }
+                        }
+                    }
+
+                    flag = 1;
 
                     Lista* grafoPrincipal = gerarGrafo(10, linhas);
                     Lista* grafoMatching = NULL;
@@ -1392,7 +1409,7 @@ int main()
                     {
                         printf("========================================\n");
                         imprimirLista(grafoPrincipal);
-                        printf("========================================\nn");
+                        printf("========================================\n\n");
 
                         grafoMatching = matching(grafoPrincipal,grafoMatching);
                         printf("========================================\n");
@@ -1407,6 +1424,30 @@ int main()
                         printf("========================================\n");
                         imprimirLista(grafoMatching);
                         printf("========================================\n");
+                    }
+
+                    for(int i = 0; i < 10; i++)
+                    {
+                        for(int j = 0; j < 10; j++)
+                        {
+                            linhas[i][j] = 0;
+                        }
+                    }
+
+                    int count = contador(grafoMatching);
+
+                    for(int i = 0; i < count; i += 2)
+                    {
+                        if(i+1 < count)
+                        {
+                            No* no = buscar_por_index(grafoMatching, i);
+                            No* receptor = buscar_por_index(grafoMatching, i+1);
+
+                            int esq = no->valor - 1;
+                            int dir = receptor->valor - 11;
+
+                            linhas[esq][dir] = 1;
+                        }
                     }
                 }
             }
@@ -2237,5 +2278,4 @@ int main()
     }
 
     imprimirLista(grafoMatching);*/
-
 }
