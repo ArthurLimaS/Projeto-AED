@@ -80,6 +80,22 @@ Lista* buscar(Lista* atual,No* ponto){
     }
 }
 
+Lista* buscar_por_index(Lista* atual, int index)
+{
+    if(atual == NULL)
+    {
+        return NULL;
+    }
+    else if(index == 0)
+    {
+        return atual;
+    }
+    else
+    {
+        return buscar_por_index(atual->proximo, index-1);
+    }
+}
+
 No* buscarPorValor(Lista* atual,int valor){
     if(atual == NULL){
         return NULL;
@@ -278,6 +294,141 @@ void verdarBotoes(int* no, int* receptor)
     *receptor = 1;
 }
 
+Lista* gerarGrafo(int tam, int matrix[tam][tam])
+{
+    Lista* nos = NULL;
+    nos = inserir(nos, inserirNo(1, NULL, 0));
+    nos = inserir(nos, inserirNo(2, NULL, 0));
+    nos = inserir(nos, inserirNo(3, NULL, 0));
+    nos = inserir(nos, inserirNo(4, NULL, 0));
+    nos = inserir(nos, inserirNo(5, NULL, 0));
+    nos = inserir(nos, inserirNo(6, NULL, 0));
+    nos = inserir(nos, inserirNo(7, NULL, 0));
+    nos = inserir(nos, inserirNo(8, NULL, 0));
+    nos = inserir(nos, inserirNo(9, NULL, 0));
+    nos = inserir(nos, inserirNo(10, NULL, 0));
+
+    printf("Checkpoint 1");
+
+    Lista* receptores = NULL;
+    receptores = inserir(nos, inserirNo(11, NULL, 1));
+    receptores = inserir(nos, inserirNo(12, NULL, 1));
+    receptores = inserir(nos, inserirNo(13, NULL, 1));
+    receptores = inserir(nos, inserirNo(14, NULL, 1));
+    receptores = inserir(nos, inserirNo(15, NULL, 1));
+    receptores = inserir(nos, inserirNo(16, NULL, 1));
+    receptores = inserir(nos, inserirNo(17, NULL, 1));
+    receptores = inserir(nos, inserirNo(18, NULL, 1));
+    receptores = inserir(nos, inserirNo(19, NULL, 1));
+    receptores = inserir(nos, inserirNo(20, NULL, 1));
+
+    printf("Checkpoint 2");
+
+    for(int i = 0; i < 10; i++)
+    {
+        for(int j = 0; j < 10; j++)
+        {
+            if(matrix[i][j] == 1)
+            {
+                printf("Checkpoint 2.5");
+                conectarNos(buscar_por_index(nos, i)->ponto, buscar_por_index(receptores, j)->ponto);
+            }
+        }
+    }
+
+    printf("Checkpoint 3");
+
+    Lista* grafoPrincipal = NULL;
+
+    if(buscar_por_index(nos, 0)->ponto != NULL)
+    {
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 0)->ponto);
+    }
+    if(buscar_por_index(nos, 1)->ponto != NULL)
+    {
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 1)->ponto);
+    }
+    if(buscar_por_index(nos, 2)->ponto != NULL)
+    {
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 2)->ponto);
+    }
+    if(buscar_por_index(nos, 3)->ponto != NULL)
+    {
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 3)->ponto);
+    }
+    if(buscar_por_index(nos, 4)->ponto != NULL)
+    {
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 4)->ponto);
+    }
+    if(buscar_por_index(nos, 5)->ponto != NULL)
+    {
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 5)->ponto);
+    }
+    if(buscar_por_index(nos, 6)->ponto != NULL)
+    {
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 6)->ponto);
+    }
+    if(buscar_por_index(nos, 7)->ponto != NULL)
+    {
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 7)->ponto);
+    }
+    if(buscar_por_index(nos, 8)->ponto != NULL)
+    {
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 8)->ponto);
+    }
+    if(buscar_por_index(nos, 9)->ponto != NULL)
+    {
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(nos, 9)->ponto);
+    }
+
+    printf("Checkpoint 4");
+
+    if(buscar_por_index(receptores, 0)->ponto != NULL)
+    {
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 0)->ponto);
+    }
+    if(buscar_por_index(receptores, 1)->ponto != NULL)
+    {
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 1)->ponto);
+    }
+    if(buscar_por_index(receptores, 2)->ponto != NULL)
+    {
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 2)->ponto);
+    }
+    if(buscar_por_index(receptores, 3)->ponto != NULL)
+    {
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 3)->ponto);
+    }
+    if(buscar_por_index(receptores, 4)->ponto != NULL)
+    {
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 4)->ponto);
+    }
+    if(buscar_por_index(receptores, 5)->ponto != NULL)
+    {
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 5)->ponto);
+    }
+    if(buscar_por_index(receptores, 6)->ponto != NULL)
+    {
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 6)->ponto);
+    }
+    if(buscar_por_index(receptores, 7)->ponto != NULL)
+    {
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 7)->ponto);
+    }
+    if(buscar_por_index(receptores, 8)->ponto != NULL)
+    {
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 8)->ponto);
+    }
+    if(buscar_por_index(receptores, 9)->ponto != NULL)
+    {
+        grafoPrincipal = inserir(grafoPrincipal, buscar_por_index(receptores, 9)->ponto);
+    }
+
+    printf("Checkpoint 5\n\n");
+
+    return grafoPrincipal;
+}
+
 int main()
 {
     //VARIAVEIS ALLEGRO
@@ -312,7 +463,7 @@ int main()
     int fechar = 0;
     int but_matching = 0;
     int but_shortest = 0;
-    int confirmar = 0 , voltar =0, desligar = 0;
+    int confirmar = 0, confirmar2 = 0, voltar =0, desligar = 0, flag = 0;
     int but_1 = 0,but_2 = 0,but_3 = 0,but_4 = 0,but_5 = 0,but_6 = 0,but_7 = 0,but_8 = 0,but_9 = 0,but_10 = 0;
     int but_11 = 0,but_12 = 0,but_13 = 0,but_14 = 0,but_15 = 0,but_16 = 0,but_17 = 0,but_18 = 0,but_19 = 0,but_20 = 0;
     int selecionadoEsq = 0 , selecionadoDir = 0;
@@ -354,6 +505,34 @@ int main()
     ALLEGRO_BITMAP *linha_1_2= al_load_bitmap("images/matchingPage/linha_1.2.png");
     ALLEGRO_BITMAP *linha_1_3= al_load_bitmap("images/matchingPage/linha1.3.png");
     ALLEGRO_BITMAP *linha_1_4= al_load_bitmap("images/matchingPage/linha_1.4.png");
+    ALLEGRO_BITMAP *linha_2_1= al_load_bitmap("images/matchingPage/linha_2_1.png");
+    ALLEGRO_BITMAP *linha_2_2= al_load_bitmap("images/matchingPage/linha_2_2.png");
+    ALLEGRO_BITMAP *linha_2_3= al_load_bitmap("images/matchingPage/linha_2_3.png");
+    ALLEGRO_BITMAP *linha_3_1= al_load_bitmap("images/matchingPage/linha_3_1.png");
+    ALLEGRO_BITMAP *linha_3_2= al_load_bitmap("images/matchingPage/linha_3_2.png");
+    ALLEGRO_BITMAP *linha_3_3= al_load_bitmap("images/matchingPage/linha_3_3.png");
+    ALLEGRO_BITMAP *linha_4_1= al_load_bitmap("images/matchingPage/linha_4_1.png");
+    ALLEGRO_BITMAP *linha_4_2= al_load_bitmap("images/matchingPage/linha_4_2.png");
+    ALLEGRO_BITMAP *linha_4_3= al_load_bitmap("images/matchingPage/linha_4_3.png");
+    ALLEGRO_BITMAP *linha_5_1= al_load_bitmap("images/matchingPage/linha_5_1.png");
+    ALLEGRO_BITMAP *linha_5_2= al_load_bitmap("images/matchingPage/linha_5_2.png");
+    ALLEGRO_BITMAP *linha_5_3= al_load_bitmap("images/matchingPage/linha_5_3.png");
+    ALLEGRO_BITMAP *linha_6_1= al_load_bitmap("images/matchingPage/linha_6_1.png");
+    ALLEGRO_BITMAP *linha_6_2= al_load_bitmap("images/matchingPage/linha_6_2.png");
+    ALLEGRO_BITMAP *linha_6_3= al_load_bitmap("images/matchingPage/linha_6_3.png");
+    ALLEGRO_BITMAP *linha_7_1= al_load_bitmap("images/matchingPage/linha_7_1.png");
+    ALLEGRO_BITMAP *linha_7_2= al_load_bitmap("images/matchingPage/linha_7_2.png");
+    ALLEGRO_BITMAP *linha_7_3= al_load_bitmap("images/matchingPage/linha_7_3.png");
+    ALLEGRO_BITMAP *linha_8_1= al_load_bitmap("images/matchingPage/linha_8_1.png");
+    ALLEGRO_BITMAP *linha_8_2= al_load_bitmap("images/matchingPage/linha_8_2.png");
+    ALLEGRO_BITMAP *linha_8_3= al_load_bitmap("images/matchingPage/linha_8_3.png");
+    ALLEGRO_BITMAP *linha_9_1= al_load_bitmap("images/matchingPage/linha_9_1.png");
+    ALLEGRO_BITMAP *linha_9_2= al_load_bitmap("images/matchingPage/linha_9_2.png");
+    ALLEGRO_BITMAP *linha_9_3= al_load_bitmap("images/matchingPage/linha_9_3.png");
+    ALLEGRO_BITMAP *linha_10_1= al_load_bitmap("images/matchingPage/linha_10_1.png");
+    ALLEGRO_BITMAP *linha_10_2= al_load_bitmap("images/matchingPage/linha_10_2.png");
+    ALLEGRO_BITMAP *linha_10_3= al_load_bitmap("images/matchingPage/linha_10_3.png");
+
     ALLEGRO_BITMAP *butimage_verde = al_load_bitmap("images/matchingPage/butVerde.png");
     ALLEGRO_BITMAP *butimage_confirmar= al_load_bitmap("images/matchingPage/but_confirmar.png");
     ALLEGRO_BITMAP *butimage_voltar = al_load_bitmap("images/matchingPage/but_voltar.png");
@@ -444,7 +623,7 @@ int main()
             }
             else if(ev2.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN)
             {
-                if(confirmar == 0)
+                if(confirmar == 0 && flag == 0)
                 {
                     if((pos_x >= 230 && pos_x <270 && pos_y > 180 && pos_y < 210)||(pos_x >= 980 && pos_x <1020 && pos_y > 180 && pos_y < 210))
                     {
@@ -598,6 +777,7 @@ int main()
                     }
                     else if(pos_x >=0 && pos_x <=40 && pos_y >= 0 && pos_y <= 40)
                     {
+                        flag = 1;
                         if(voltar == 0)
                         {
                             but_matching = 0;
@@ -609,6 +789,13 @@ int main()
                             conec_1_11 = 0;
                             al_stop_sample_instance(inst_button);
                             al_play_sample_instance(inst_button);
+                            for(int i = 0; i < 10; i++)
+                            {
+                                for(int j = 0; j < 10; j++)
+                                {
+                                    linhas[i][j] = 0;
+                                }
+                            }
                             break;
                         }
                     }
@@ -616,20 +803,30 @@ int main()
                     {
                         confirmar = 1;
                         voltar = 1;
+                        flag = 1;
                         al_stop_sample_instance(inst_button);
                         al_play_sample_instance(inst_button);
                     }
                 }
 
-                if(confirmar == 1)
+                if(confirmar == 1 && flag == 0)
                 {
                     int* no;
                     int* receptor;
 
                     if(pos_x >=0 && pos_x <=40 && pos_y >= 0 && pos_y <= 40)
                     {
+                        for(int i = 0; i < 10; i++)
+                        {
+                            for(int j = 0; j < 10; j++)
+                            {
+                                linhas[i][j] = 0;
+                            }
+                        }
+
                         confirmar = 0;
                         voltar = 0;
+                        flag = 1;
                         if(but_1 == 2)
                         {
                             selecionadoEsq = 0;
@@ -737,9 +934,12 @@ int main()
                     }
                     else if(pos_x >=1180 && pos_x <=1260 && pos_y >= 630 && pos_y <= 665)
                     {
-                        //FAZER CONFIRMAR PARA RODAR O CÓDIGO
                         al_stop_sample_instance(inst_button);
                         al_play_sample_instance(inst_button);
+
+                        confirmar = 2;
+                        voltar = 2;
+                        flag = 1;
                     }
                     else if(pos_x >= 230 && pos_x <270 && pos_y > 180 && pos_y < 210) // Botão 1
                     {
@@ -1182,6 +1382,33 @@ int main()
                         verdarBotoes(no, receptor);
                     }
                 }
+
+                if(confirmar == 2 && flag == 0)
+                {
+
+                    Lista* grafoPrincipal = gerarGrafo(10, linhas);
+                    Lista* grafoMatching = NULL;
+                    if(grafoPrincipal != NULL)
+                    {
+                        printf("========================================\n");
+                        imprimirLista(grafoPrincipal);
+                        printf("========================================\nn");
+
+                        grafoMatching = matching(grafoPrincipal,grafoMatching);
+                        printf("========================================\n");
+                        imprimirLista(grafoMatching);
+                        printf("========================================\n\n");
+
+                        while(contador(grafoMatching) != contador(grafoPrincipal))
+                        {
+                            grafoMatching = reorganizarMatching(grafoMatching,grafoMatching);
+                        }
+
+                        printf("========================================\n");
+                        imprimirLista(grafoMatching);
+                        printf("========================================\n");
+                    }
+                }
             }
 
             if(al_is_event_queue_empty(event_queue))
@@ -1194,52 +1421,420 @@ int main()
                 {
                     al_draw_scaled_bitmap(linha_1,0,0,al_get_bitmap_width(linha_1),al_get_bitmap_height(linha_1),265,200,al_get_bitmap_width(linha_1), al_get_bitmap_height(linha_1),0);
                 }
-
                 if(linhas[0][1]) // 1 -> 12
                 {
                     al_draw_rotated_bitmap(linha_1,0,0,265,200,0.07,0);
                 }
-
                 if(linhas[0][2]) // 1 -> 13
                 {
                     al_draw_rotated_bitmap(linha_1_3,8,660,265,200,0.13,0);
                 }
-
                 if(linhas[0][3]) // 1 -> 14
                 {
                     al_draw_rotated_bitmap(linha_1_3,2,660,265,200,0.19,0);
                 }
-
                 if(linhas[0][4]) // 1 -> 15
                 {
                     al_draw_rotated_bitmap(linha_1_3,-2,660,265,200,0.26,0);
                 }
-
                 if(linhas[0][5]) // 1 -> 16
                 {
                     al_draw_rotated_bitmap(linha_1_2,30,310,265,200,0.32,0);
                 }
-
                 if(linhas[0][6]) // 1 -> 17
                 {
                     al_draw_rotated_bitmap(linha_1_2,20,310,265,200,0.38,0);
                 }
-
                 if(linhas[0][7]) // 1 -> 18
                 {
                     al_draw_rotated_bitmap(linha_1_2,0,310,265,200,0.43,0);
                 }
-
                 if(linhas[0][8]) // 1 -> 19
                 {
                     al_draw_rotated_bitmap(linha_1_2,0,310,265,200,0.49,0);
                 }
-
                 if(linhas[0][9]) // 1 -> 20
                 {
                     al_draw_rotated_bitmap(linha_1_4,0,590,265,200,0.54,0);
                 }
 
+
+                if(linhas[1][0]) // 2 -> 11
+                {
+                    al_draw_rotated_bitmap(linha_2_3,0,450,240,200,-0.07,0);
+                }
+                if(linhas[1][1]) // 2 -> 12
+                {
+                    al_draw_rotated_bitmap(linha_2_3,0,450,240,200,0,0);
+                }
+                if(linhas[1][2]) // 2 -> 13
+                {
+                    al_draw_rotated_bitmap(linha_2_3,0,450,240,200,0.06,0);
+                }
+                if(linhas[1][3]) // 2 -> 14
+                {
+                    al_draw_rotated_bitmap(linha_2_3,0,450,260,200,0.13,0);
+                }
+                if(linhas[1][4]) // 2 -> 15
+                {
+                    al_draw_rotated_bitmap(linha_2_3,0,450,260,200,0.20,0);
+                }
+                if(linhas[1][5]) // 2 -> 16
+                {
+                    al_draw_rotated_bitmap(linha_2_3,0,450,260,200,0.26,0);
+                }
+                if(linhas[1][6]) // 2 -> 17
+                {
+                    al_draw_rotated_bitmap(linha_2_1,0,270,250,200,0.32,0);
+                }
+                if(linhas[1][7]) // 2 -> 18
+                {
+                    al_draw_rotated_bitmap(linha_2_1,0,270,265,200,0.38,0);
+                }
+                if(linhas[1][8]) // 2 -> 19
+                {
+                   al_draw_rotated_bitmap(linha_2_1,0,270,265,200,0.44,0);
+                }
+                if(linhas[1][9]) // 2 -> 20
+                {
+                    al_draw_rotated_bitmap(linha_2_1,0,260,295,200,0.50,0);
+                }
+
+
+                if(linhas[2][0]) // 3 -> 11
+                {
+                    al_draw_rotated_bitmap(linha_3_3,0,400,235,200,-0.14,0);
+                }
+                if(linhas[2][1]) // 3 -> 12
+                {
+                    al_draw_rotated_bitmap(linha_3_2,0,420,265,200,-0.07,0);
+                }
+                if(linhas[2][2]) // 3 -> 13
+                {
+                    al_draw_rotated_bitmap(linha_3_2,0,420,270,200,0,0);
+                }
+                if(linhas[2][3]) // 3 -> 14
+                {
+                    al_draw_rotated_bitmap(linha_3_2,0,420,270,200,0.07,0);
+                }
+                if(linhas[2][4]) // 3 -> 15
+                {
+                    al_draw_rotated_bitmap(linha_3_3,0,400,255,200,0.13,0);
+                }
+                if(linhas[2][5]) // 3 -> 16
+                {
+                    al_draw_rotated_bitmap(linha_3_3,0,400,255,200,0.19,0);
+                }
+                if(linhas[2][6]) // 3 -> 17
+                {
+                    al_draw_rotated_bitmap(linha_3_3,0,400,265,200,0.25,0);
+                }
+                if(linhas[2][7]) // 3 -> 18
+                {
+                    al_draw_rotated_bitmap(linha_3_3,0,395,285,200,0.31,0);
+                }
+                if(linhas[2][8]) // 3 -> 19
+                {
+                    al_draw_rotated_bitmap(linha_3_3,0,390,310,200,0.38,0);
+                }
+                if(linhas[2][9]) // 3 -> 20
+                {
+                    al_draw_rotated_bitmap(linha_3_1,0,218,290,200,0.44,0);
+                }
+
+
+                if(linhas[3][0]) // 4 -> 11
+                {
+                    al_draw_rotated_bitmap(linha_4_3,0,365,230,200,-0.18,0);
+                }
+                if(linhas[3][1]) // 4 -> 12
+                {
+                    al_draw_rotated_bitmap(linha_4_2,0,373,248,200,-0.12,0);
+                }
+                if(linhas[3][2]) // 4 -> 13
+                {
+                    al_draw_rotated_bitmap(linha_4_2,0,370,255,200,-0.06,0);
+                }
+                if(linhas[3][3]) // 4 -> 14
+                {
+                    al_draw_rotated_bitmap(linha_4_2,0,370,270,200,0,0);
+                }
+                if(linhas[3][4]) // 4 -> 15
+                {
+                    al_draw_rotated_bitmap(linha_4_2,0,370,270,200,0.06,0);
+                }
+                if(linhas[3][5]) // 4 -> 16
+                {
+                    al_draw_rotated_bitmap(linha_4_3,0,355,250,200,0.12,0);
+                }
+                if(linhas[3][6]) // 4 -> 17
+                {
+                    al_draw_rotated_bitmap(linha_4_3,0,345,260,200,0.18,0);
+                }
+                if(linhas[3][7]) // 4 -> 18
+                {
+                    al_draw_rotated_bitmap(linha_4_3,0,350,280,200,0.24,0);
+                }
+                if(linhas[3][8]) // 4 -> 19
+                {
+                    al_draw_rotated_bitmap(linha_4_3,0,340,300,200,0.30,0);
+                }
+                if(linhas[3][9]) // 4 -> 20
+                {
+                    al_draw_rotated_bitmap(linha_4_3,0,330,328,200,0.36,0);
+                }
+
+
+                if(linhas[4][0]) // 5 -> 11
+                {
+                    al_draw_rotated_bitmap(linha_5_3,0,305,200,200,-0.26,0);
+                }
+                if(linhas[4][1]) // 5 -> 12
+                {
+                    al_draw_rotated_bitmap(linha_5_3,0,305,205,200,-0.195,0);
+                }
+                if(linhas[4][2]) // 5 -> 13
+                {
+                    al_draw_rotated_bitmap(linha_5_3,0,305,210,200,-0.13,0);
+                }
+                if(linhas[4][3]) // 5 -> 14
+                {
+                    al_draw_rotated_bitmap(linha_5_3,0,305,220,200,-0.065,0);
+                }
+                if(linhas[4][4]) // 5 -> 15
+                {
+                    al_draw_rotated_bitmap(linha_5_3,0,305,235,200,0,0);
+                }
+                if(linhas[4][5]) // 5 -> 16
+                {
+                    al_draw_rotated_bitmap(linha_5_3,0,305,250,200,0.065,0);
+                }
+                if(linhas[4][6]) // 5 -> 17
+                {
+                    al_draw_rotated_bitmap(linha_5_3,0,305,260,200,0.13,0);
+                }
+                if(linhas[4][7]) // 5 -> 18
+                {
+                    al_draw_rotated_bitmap(linha_5_3,0,305,275,200,0.195,0);
+                }
+                if(linhas[4][8]) // 5 -> 19
+                {
+                    al_draw_rotated_bitmap(linha_5_3,0,300,290,200,0.26,0);
+                }
+                if(linhas[4][9]) // 5 -> 20
+                {
+                    al_draw_rotated_bitmap(linha_5_1,0,115,300,200,0.325,0);
+                }
+
+
+                if(linhas[5][0]) // 6 -> 11
+                {
+                    al_draw_rotated_bitmap(linha_6_3,0,245,185,200,-0.32,0);
+                }
+                if(linhas[5][1]) // 6 -> 12
+                {
+                    al_draw_rotated_bitmap(linha_6_3,0,245,200,200,-0.26,0);
+                }
+                if(linhas[5][2]) // 6 -> 13
+                {
+                    al_draw_rotated_bitmap(linha_6_3,0,245,212,200,-0.20,0);
+                }
+                if(linhas[5][3]) // 6 -> 14
+                {
+                    al_draw_rotated_bitmap(linha_6_2,0,276,240,200,-0.12,0);
+                }
+                if(linhas[5][4]) // 6 -> 15
+                {
+                    al_draw_rotated_bitmap(linha_6_2,0,270,255,200,-0.06,0);
+                }
+                if(linhas[5][5]) // 6 -> 16
+                {
+                    al_draw_rotated_bitmap(linha_6_2,0,270,270,200,0,0);
+                }
+                if(linhas[5][6]) // 6 -> 17
+                {
+                    al_draw_rotated_bitmap(linha_6_2,0,267,279,200,0.06,0);
+                }
+                if(linhas[5][7]) // 6 -> 18
+                {
+                    al_draw_rotated_bitmap(linha_6_3,0,245,280,200,0.13,0);
+                }
+                if(linhas[5][8]) // 6 -> 19
+                {
+                    al_draw_rotated_bitmap(linha_6_3,0,245,290,200,0.20,0);
+                }
+                if(linhas[5][9]) // 6 -> 20
+                {
+                    al_draw_rotated_bitmap(linha_6_3,0,245,310,200,0.27,0);
+                }
+
+
+                if(linhas[6][0]) // 7 -> 11
+                {
+                    al_draw_rotated_bitmap(linha_7_3,0,192,150,200,-0.38,0);
+                }
+                if(linhas[6][1]) // 7 -> 12
+                {
+                    al_draw_rotated_bitmap(linha_7_3,0,195,170,200,-0.32,0);
+                }
+                if(linhas[6][2]) // 7 -> 13
+                {
+                    al_draw_rotated_bitmap(linha_7_3,0,195,190,200,-0.26,0);
+                }
+                if(linhas[6][3]) // 7 -> 14
+                {
+                    al_draw_rotated_bitmap(linha_7_3,0,195,202,200,-0.20,0);
+                }
+                if(linhas[6][4]) // 7 -> 15
+                {
+                    al_draw_rotated_bitmap(linha_7_2,0,226,235,200,-0.12,0);
+                }
+                if(linhas[6][5]) // 7 -> 16
+                {
+                    al_draw_rotated_bitmap(linha_7_2,0,220,250,200,-0.06,0);
+                }
+                if(linhas[6][6]) // 7 -> 17
+                {
+                    al_draw_rotated_bitmap(linha_7_2,0,220,270,200,0,0);
+                }
+                if(linhas[6][7]) // 7 -> 18
+                {
+                    al_draw_rotated_bitmap(linha_7_2,0,217,279,200,0.06,0);
+                }
+                if(linhas[6][8]) // 7 -> 19
+                {
+                    al_draw_rotated_bitmap(linha_7_3,0,195,280,200,0.13,0);
+                }
+                if(linhas[6][9]) // 7 -> 20
+                {
+                    al_draw_rotated_bitmap(linha_7_3,0,205,290,200,0.20,0);
+                }
+
+
+                if(linhas[7][0]) // 8 -> 11
+                {
+                    al_draw_rotated_bitmap(linha_8_1,0,170,100,200,-0.435,0);
+                }
+                if(linhas[7][1]) // 8 -> 12
+                {
+                    al_draw_rotated_bitmap(linha_8_1,0,170,100,200,-0.38,0);
+                }
+                if(linhas[7][2]) // 8 -> 13
+                {
+                    al_draw_rotated_bitmap(linha_8_3,0,140,150,200,-0.325,0);
+                }
+                if(linhas[7][3]) // 8 -> 14
+                {
+                    al_draw_rotated_bitmap(linha_8_3,0,151,170,200,-0.26,0);
+                }
+                if(linhas[7][4]) // 8 -> 15
+                {
+                    al_draw_rotated_bitmap(linha_8_3,0,152,190,200,-0.195,0);
+                }
+                if(linhas[7][5]) // 8 -> 16
+                {
+                    al_draw_rotated_bitmap(linha_8_3,0,153,210,200,-0.13,0);
+                }
+                if(linhas[7][6]) // 8 -> 17
+                {
+                    al_draw_rotated_bitmap(linha_8_3,0,154,230,200,-0.065,0);
+                }
+                if(linhas[7][7]) // 8 -> 18
+                {
+                    al_draw_rotated_bitmap(linha_8_3,0,155,250,200,0,0);
+                }
+                if(linhas[7][8]) // 8 -> 19
+                {
+                    al_draw_rotated_bitmap(linha_8_3,0,156,270,200,0.065,0);
+                }
+                if(linhas[7][9]) // 8 -> 20
+                {
+                    al_draw_rotated_bitmap(linha_8_3,0,157,290,200,0.13,0);
+                }
+
+
+                if(linhas[8][0]) // 9 -> 11
+                {
+                    al_draw_rotated_bitmap(linha_9_1,0,110,65,200,-0.47,0);
+                }
+                if(linhas[8][1]) // 9 -> 12
+                {
+                    al_draw_rotated_bitmap(linha_9_1,0,120,75,200,-0.42,0);
+                }
+                if(linhas[8][2]) // 9 -> 13
+                {
+                    al_draw_rotated_bitmap(linha_9_1,0,120,95,200,-0.37,0);
+                }
+                if(linhas[8][3]) // 9 -> 14
+                {
+                    al_draw_rotated_bitmap(linha_9_3,0,95,135,200,-0.32,0);
+                }
+                if(linhas[8][4]) // 9 -> 15
+                {
+                    al_draw_rotated_bitmap(linha_9_3,0,95,156,200,-0.26,0);
+                }
+                if(linhas[8][5]) // 9 -> 16
+                {
+                    al_draw_rotated_bitmap(linha_9_3,0,95,180,200,-0.21,0);
+                }
+                if(linhas[8][6]) // 9 -> 17
+                {
+                    al_draw_rotated_bitmap(linha_9_2,0,126,220,200,-0.12,0);
+                }
+                if(linhas[8][7]) // 9 -> 18
+                {
+                    al_draw_rotated_bitmap(linha_9_2,0,120,240,200,-0.06,0);
+                }
+                if(linhas[8][8]) // 9 -> 19
+                {
+                    al_draw_rotated_bitmap(linha_9_2,0,120,270,200,0,0);
+                }
+                if(linhas[8][9]) // 9 -> 20
+                {
+                    al_draw_rotated_bitmap(linha_9_2,0,117,285,200,0.06,0);
+                }
+
+
+                if(linhas[9][0]) // 10 -> 11
+                {
+                    al_draw_rotated_bitmap(linha_10_1,0,30,5,200,-0.56,0);
+                }
+                if(linhas[9][1]) // 10 -> 12
+                {
+                    al_draw_rotated_bitmap(linha_10_1,0,40,30,200,-0.50,0);
+                }
+                if(linhas[9][2]) // 10 -> 13
+                {
+                    al_draw_rotated_bitmap(linha_10_1,0,60,60,200,-0.44,0);
+                }
+                if(linhas[9][3]) // 10 -> 14
+                {
+                    al_draw_rotated_bitmap(linha_10_3,0,38,95,200,-0.38,0);
+                }
+                if(linhas[9][4]) // 10 -> 15
+                {
+                    al_draw_rotated_bitmap(linha_10_3,0,45,115,200,-0.33,0);
+                }
+                if(linhas[9][5]) // 10 -> 16
+                {
+                    al_draw_rotated_bitmap(linha_10_3,0,45,145,200,-0.27,0);
+                }
+                if(linhas[9][6]) // 10 -> 17
+                {
+                    al_draw_rotated_bitmap(linha_10_3,0,45,175,200,-0.20,0);
+                }
+                if(linhas[9][7]) // 10 -> 18
+                {
+                    al_draw_rotated_bitmap(linha_10_2,0,64,215,200,-0.12,0);
+                }
+                if(linhas[9][8]) // 10 -> 19
+                {
+                    al_draw_rotated_bitmap(linha_10_2,0,60,240,200,-0.06,0);
+                }
+                if(linhas[9][9]) // 10 -> 20
+                {
+                    al_draw_rotated_bitmap(linha_10_2,0,60,270,200,0,0);
+                }
 
 
                 if(but_1 == 0)
@@ -1518,6 +2113,8 @@ int main()
                 }
             }
             al_flip_display();
+
+            flag = 0;
         }
 
         while(but_shortest)
